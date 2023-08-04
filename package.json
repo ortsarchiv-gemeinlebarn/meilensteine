@@ -6,7 +6,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "parcel": "npx parcel",
         "start": "parcel src/index.html",
-        "ci:build": "parcel build src/index.html --target ./dist --log-level error --no-cache"
+        "ci:build": "parcel build src/index.html --log-level error --no-cache"
     },
     "author": "Jakob Vesely",
     "license": "ISC",
