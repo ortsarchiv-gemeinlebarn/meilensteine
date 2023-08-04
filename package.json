@@ -1,0 +1,20 @@
+{
+    "name": "@ortsarchiv-gemeinlebarn/meilensteine",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "parcel": "npx parcel",
+        "start": "parcel src/index.html",
+        "ci:build": "parcel build src/index.html --target ./dist --log-level error --no-cache"
+    },
+    "author": "Jakob Vesely",
+    "license": "ISC",
+    "dependencies": {
+        "@ortsarchiv-gemeinlebarn/components": "^2.1.0",
+        "ol": "^7.4.0"
+    },
+    "devDependencies": {
+        "parcel": "^2.9.3"
+    }
+}

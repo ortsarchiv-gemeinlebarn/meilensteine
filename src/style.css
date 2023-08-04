@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: auto;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+:root {
+    --layout-inner-max-width: 800px;
+    --layout-outer-max-width: 1000px;
+
+    --layout-padding: 2em;
+    --component-padding: 1em;
+
+    --default-radius: 0.4em;
+
+    --default-text-font-family: 'Jost', serif;
+    --default-text-line-height: 1.5;
+    --default-text-align: justify;
+    --default-text-size: 1em;
+}
+
+figure {
+    margin: 0;
+}
+
+figure figcaption {
+    margin: 0 auto;
+    margin-top: 1em;
+    max-width: var(--layout-inner-max-width);
+}
+
+p {
+    line-height: var(--default-text-line-height);
+    text-align: var(--default-text-align);
+    font-size: var(--default-text-size);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.7em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+.map {
+    display: block;
+    width: 100%;
+    height: 500px;
+    background-color: #f4f4f4;
+    border-radius: var(--default-radius);
+}
