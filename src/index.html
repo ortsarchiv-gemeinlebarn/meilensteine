@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meilensteine von Gemeinlebarn</title>
 
+    <link rel="stylesheet" href="../node_modules/@ortsarchiv-gemeinlebarn/components/dist/oag-components/oag-components.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="app.js"></script>
 </head>
@@ -17,7 +18,7 @@
             id="hero"
             headline="Der Fund der Meilensteine von Gemeinlebarn"
             caption="Die Entdeckung im Herbst 1998"
-            background-image="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/hero.jpeg"
+            background-image="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/47.jpeg"
             background-overlay="rgba(0, 0, 0, 0.25)">
         </oag-hero>
 
@@ -47,14 +48,13 @@
         </oag-content>
         <oag-figure max-width="inner" caption="Hebung" reference="oag-a-ufg-1-1-1">
             <video controls>
-                <source src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/Meilensteine Ausschnitt Hebung.webm" type="video/webm" />
-                <source src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/Meilensteine Ausschnitt Hebung.mp4" type="video/mp4" />
+                <source src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/filmausschnitte/hebung.webm" type="video/webm" />
+                <source src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/filmausschnitte/hebung.mp4" type="video/mp4" />
                 <p>
                     Your browser doesn't support HTML video.
                 </p>
             </video>
         </oag-figure>
-
 
         <oag-figure max-width="full" caption="Verlauf der Römerstraße" reference="oag-a-ufg-1-1-1">
             <oag-map id="map-strassen" background-layer="grau"></oag-map>
@@ -66,7 +66,32 @@
         </oag-content>
 
         <oag-figure caption="Untersuchung" reference="oag-a-ufg-1-1-1">
-            <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/foto54.jpeg" alt="">
+            <oag-lightbox>
+                <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/12.jpeg" alt="">
+
+                <oag-tooltip x="55%" y="42%" icon="person">
+                    <p>Johannes-Wolfgang Neugebauer</p>
+                </oag-tooltip>
+            </oag-lightbox>
+        </oag-figure>
+
+        <oag-figure caption="Die im Schnitt sichbaren Straßen mit dazwischenliegenden Humusschichten" reference="oag-a-ufg-1-1-1">
+            <oag-lightbox>
+                <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/25.jpeg" alt="">
+
+                <oag-tooltip x="70%" y="16%" icon="information">
+                    <p>Niveau der heutigen Straße B43</p>
+                </oag-tooltip>
+                <oag-tooltip x="70%" y="36%" icon="information">
+                    <p>Mittelalterliche Straße</p>
+                </oag-tooltip>
+                <oag-tooltip x="70%" y="60%" icon="information">
+                    <p>Römische Straße</p>
+                </oag-tooltip>
+                <oag-tooltip x="70%" y="91%" icon="information">
+                    <p>Ursprünglicher Schotter</p>
+                </oag-tooltip>
+            </oag-lightbox>
         </oag-figure>
 
 
@@ -75,14 +100,14 @@
         </oag-content>
 
         <oag-horizontal-gallery images='[
-            { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/foto4.jpeg", "caption": "Bild 1", "reference": "oag-a-ufg-1-1-1" },
-            { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/foto5.jpeg", "caption": "Bild 2", "reference": "oag-a-ufg-1-1-1" },
-            { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/foto42.jpeg", "caption": "Bild 3", "reference": "oag-a-ufg-1-1-1" }
+            { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/04.jpeg", "caption": "Bild 1", "reference": "oag-a-ufg-1-1-1" },
+            { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/05.jpeg", "caption": "Bild 2", "reference": "oag-a-ufg-1-1-1" },
+            { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/42.jpeg", "caption": "Bild 3", "reference": "oag-a-ufg-1-1-1" }
         ]'></oag-horizontal-gallery>
 
 
         <oag-figure caption="A" reference="oag-a-ufg-1-1-1">
-            <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/foto12.jpeg" alt="">
+            <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/01.jpeg" alt="">
         </oag-figure>
 
         <oag-content>
@@ -92,9 +117,30 @@
             <p>XY</p>
         </oag-content>
 
+
+        <oag-content>
+            <h2>Die Steine</h2>
+        </oag-content>
+
+        <oag-figure caption="Die Steine" reference="oag-a-ufg-1-1-1">
+            <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/vectors/meilensteine.svg" alt="">
+        </oag-figure>
+
+        <oag-content>
+            <h3>Inschriften</h3>
+        </oag-content>
+
         <oag-content>
             <h2>Literatur</h2>
             <p>XY</p>
+        </oag-content>
+
+        <oag-information></oag-information>
+
+        <oag-content>
+            <h2>Impressum & Datenschutz</h2>
+            <h4>Medieninhaber</h4>
+            <p>Jakob Vesely</p>
         </oag-content>
 
     </oag-application>
