@@ -6,15 +6,19 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "parcel": "npx parcel",
         "start": "parcel src/index.html",
-        "ci:build": "parcel build src/index.html --log-level error --no-cache"
+        "start:landing": "parcel src/landing/index.html",
+        "ci:build": "parcel build src/index.html --log-level error --no-cache --dist-dir ./dist",
+        "ci:build:vorschau": "parcel build src/index.html --log-level error --no-cache --dist-dir ./dist/landing/vorschau",
+        "ci:build:landing": "parcel build src/landing/index.html --log-level error --no-cache --dist-dir ./dist/landing"
     },
     "author": "Jakob Vesely",
     "license": "ISC",
     "dependencies": {
-        "@ortsarchiv-gemeinlebarn/components": "^2.3.0",
+        "@ortsarchiv-gemeinlebarn/components": "^2.4.1",
         "ol": "^7.4.0"
     },
     "devDependencies": {
+        "@parcel/transformer-sass": "^2.9.3",
         "parcel": "^2.9.3"
     }
 }

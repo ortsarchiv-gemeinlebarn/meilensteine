@@ -28,11 +28,17 @@ jobs:
         run: npm ci
 
       - name: '[npm] Build'
-        run: npm run ci:build --if-present
+        run: npm run ci:build:landing --if-present
 
-      - name: Artifact Ouput
-        uses: actions/upload-artifact@v3
+      - name: '[npm] Build Landing Page'
+        run: npm run ci:build:vorschau --if-present
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          name: meilensteine-dist
-          path: |
-            dist
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/landing
+          dangerous-clean-slate: true
+
