@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  build-and-deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
 
     strategy:
