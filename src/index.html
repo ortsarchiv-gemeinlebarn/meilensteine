@@ -23,9 +23,6 @@
             background-overlay="rgba(0, 0, 0, 0.25)">
         </oag-hero>
 
-        <!-- Kapitel 1 - Der Weg zum Fund -->
-        <!-- Kapitel 2 - Die Ausgrabungen -->
-
         <oag-content>
             <h2>Der Weg zum Fund</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat minus quam officia, laboriosam voluptate ab sint neque vel exercitationem! Vero aperiam accusamus necessitatibus rerum? Eius qui corporis, nihil quae ducimus ab debitis ut cum culpa provident quibusdam consequuntur nam ad minima fuga? Deserunt odio explicabo laboriosam iste minima ea quidem molestias, magnam asperiores enim ullam nulla mollitia! Quisquam atque praesentium nihil sint rem reprehenderit quaerat quo consectetur cum beatae maiores eaque, dolorum aspernatur facilis, nemo saepe, a nesciunt dolor neque illum natus officia et fuga! Provident, voluptatibus nesciunt laboriosam quibusdam sunt voluptate vel sequi atque numquam unde dolor cupiditate ipsum.</p>
@@ -61,7 +58,6 @@
             <oag-map id="map-strassen" background-layer="grau"></oag-map>
         </oag-figure>
 
-
         <oag-content>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat minus quam officia, laboriosam voluptate ab sint neque vel exercitationem! Vero aperiam accusamus necessitatibus rerum? Eius qui corporis, nihil quae ducimus ab debitis ut cum culpa provident quibusdam consequuntur nam ad minima fuga? Deserunt odio explicabo laboriosam iste minima ea quidem molestias, magnam asperiores enim ullam nulla mollitia! Quisquam atque praesentium nihil sint rem reprehenderit quaerat quo consectetur cum beatae maiores eaque, dolorum aspernatur facilis, nemo saepe, a nesciunt dolor neque illum natus officia et fuga! Provident, voluptatibus nesciunt laboriosam quibusdam sunt voluptate vel sequi atque numquam unde dolor cupiditate ipsum.</p>
         </oag-content>
@@ -70,31 +66,44 @@
             <oag-lightbox>
                 <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/12.jpeg" alt="">
 
-                <oag-tooltip x="55%" y="42%" icon="person">
+                <!-- <oag-tooltip x="55%" y="42%" icon="person">
                     <p>Johannes-Wolfgang Neugebauer</p>
-                </oag-tooltip>
+                </oag-tooltip> -->
             </oag-lightbox>
         </oag-figure>
 
         <oag-figure caption="Die im Schnitt sichbaren Straßen mit dazwischenliegenden Humusschichten" reference="oag-a-ufg-1-1-1">
-            <oag-lightbox>
-                <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/25.jpeg" alt="">
 
-                <oag-tooltip x="70%" y="16%" icon="information">
-                    <p>Niveau der heutigen Straße B43</p>
-                </oag-tooltip>
-                <oag-tooltip x="70%" y="36%" icon="information">
-                    <p>Mittelalterliche Straße</p>
-                </oag-tooltip>
-                <oag-tooltip x="70%" y="60%" icon="information">
-                    <p>Römische Straße</p>
-                </oag-tooltip>
-                <oag-tooltip x="70%" y="91%" icon="information">
-                    <p>Ursprünglicher Schotter</p>
-                </oag-tooltip>
-            </oag-lightbox>
+            <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/25.jpeg" alt="">
+
+            <oag-tooltip x="70%" y="16%" icon="information">
+                <p>Niveau der heutigen Straße B43</p>
+            </oag-tooltip>
+            <oag-tooltip x="70%" y="36%" icon="information">
+                <p>Mittelalterliche Straße</p>
+            </oag-tooltip>
+            <oag-tooltip x="70%" y="60%" icon="information">
+                <p>Römische Straße</p>
+            </oag-tooltip>
+            <oag-tooltip x="70%" y="91%" icon="information">
+                <p>Ursprünglicher Schotter</p>
+            </oag-tooltip>
         </oag-figure>
 
+        <oag-figure
+            caption="Originalskizze von Alois Gattringer"
+            reference="oag-a-ufg-1-1-1">
+
+            <oag-image-comparison
+                slider-icon-position="18%"
+                slider-width="2"
+                slider-position="35"
+                label-left="A"
+                label-right="B"
+                src-left="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/comparisons/zeichnung-pfahl/Zeichnung.jpg"
+                src-right="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/comparisons/zeichnung-pfahl/Digital.jpg">
+            </oag-image-comparison>
+        </oag-figure>
 
         <oag-content>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat minus quam officia, laboriosam voluptate ab sint neque vel exercitationem! Vero aperiam accusamus necessitatibus rerum? Eius qui corporis, nihil quae ducimus ab debitis ut cum culpa provident quibusdam consequuntur nam ad minima fuga? Deserunt odio explicabo laboriosam iste minima ea quidem molestias, magnam asperiores enim ullam nulla mollitia! Quisquam atque praesentium nihil sint rem reprehenderit quaerat quo consectetur cum beatae maiores eaque, dolorum aspernatur facilis, nemo saepe, a nesciunt dolor neque illum natus officia et fuga! Provident, voluptatibus nesciunt laboriosam quibusdam sunt voluptate vel sequi atque numquam unde dolor cupiditate ipsum.</p>
@@ -106,17 +115,12 @@
             { "src": "https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/42.jpeg", "caption": "Bild 3", "reference": "oag-a-ufg-1-1-1" }
         ]'></oag-horizontal-gallery>
 
-
-        <oag-figure caption="A" reference="oag-a-ufg-1-1-1">
-            <img src="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotoserie-graf/01.jpeg" alt="">
-        </oag-figure>
-
-        <oag-content>
+        <!-- <oag-content>
             <h2>Quellen</h2>
             <oag-reference id="oag-a-ufg-1-1-1" reference-code="AT-OAG.A.UFG.1.1.1" title="Fotoserie zum Meilensteinfund (Graf)">
             </oag-reference>
             <p>XY</p>
-        </oag-content>
+        </oag-content> -->
 
 
         <oag-content>
