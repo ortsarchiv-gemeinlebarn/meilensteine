@@ -9,13 +9,6 @@ body {
     padding: 0;
 }
 
-.map {
-    display: block;
-    width: 100%;
-    height: 500px;
-    background-color: #f4f4f4;
-}
-
 .termin {
     background-color: rgba(255, 255, 255, 0.95);
     color: #000;
@@ -25,6 +18,10 @@ body {
     border-radius: var(--default-radius);
     gap: var(--default-layout-padding);
     margin-top: 2em;
+
+    &--mobile {
+        display: none;
+    }
 
     .icon {
         display: flex;
@@ -43,22 +40,66 @@ body {
 
         h2 {
             margin-top: 0px;
+            margin-bottom: 0.5em;
         }
 
         h3 {
-            margin-bottom: 1em;
+            margin-bottom: 0em;
+            margin-bottom: 0.5em;
         }
 
-        p {}
+        &__last-line {
+            margin-top: 1em;
+            font-style: italic;
+        }
     }
 }
 
-// @media screen and (max-width: 600px) {
-//     .termin {
-//         flex-direction: column;
+oag-hero {
+    font-size: 0.8em;
+    --p: calc(1.5 * var(--default-layout-padding));
+    --overlay-padding: var(--p) var(--p) 180px var(--p);
+    --component-content-direction: column-reverse;
 
-//         .icon {
-//             width: 100%;
-//         }
-//     }
-// }
+    p {
+        font-size: 1.1rem;
+    }
+}
+
+oag-information {
+    background-color: #fff;
+}
+
+.imprint {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 2em;
+}
+
+@media screen and (max-width: 600px) {
+
+
+    oag-information {
+        background-color: rgb(244, 244, 244);
+    }
+
+    oag-hero {
+        font-size: 0.75em;
+        min-height: auto;
+        --logo-display: none;
+        --caption-display: none;
+        --overlay-padding: calc(1.5 * var(--default-layout-padding));
+    }
+
+    .termin {
+        &--desktop {
+            display: none;
+        }
+
+        &--mobile {
+            display: flex;
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+}
