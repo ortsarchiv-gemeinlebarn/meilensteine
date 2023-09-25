@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "strasse_ungesichert_3857",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 1755607.764769085217267, 6164652.431310046464205 ], [ 1753620.817679958883673, 6165033.661398467607796 ] ] ] } },
+{ "type": "Feature", "properties": { "id": null }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 1753547.689757901476696, 6165045.194439840503037 ], [ 1752874.333325765095651, 6165373.605022720992565 ], [ 1750623.887827960774302, 6165856.692492458969355 ] ] ] } }
+]
+}
