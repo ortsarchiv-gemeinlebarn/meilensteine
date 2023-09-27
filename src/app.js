@@ -1,5 +1,5 @@
 import { GeoJSON } from 'ol/format';
-import { OSM, Vector as VectorSource, GeoTIFF } from 'ol/source';
+import { OSM, Vector as VectorSource, XYZ } from 'ol/source';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import { Circle as CircleStyle, Stroke, Fill, Style } from 'ol/style';
 
@@ -36,17 +36,19 @@ document.getElementById("map-fund")?.addEventListener("readyMap", ($event) => {
     map.getView().setCenter([1758922.985, 6163196.460]);
     map.getView().setZoom(21.4);
 
-    // map.addLayer(new TileLayer({
-    //     source: new GeoTIFF({
-    //         sources: [
-    //             {
-    //                 // url: 'http://data.ortsarchiv-gemeinlebarn.org/meilensteine/geo/georef_verfearbungen_1997.tif'
-    //                 // url: "http://localhost/georef_verfearbungen_1997.tif"
-    //             },
-    //         ],
-    //     }),
-    //     zIndex: 80
-    // }));
+    map.addLayer(new TileLayer({
+        title: 'Overlay',
+        // opacity: 0.7,
+        extent: [1758789.407500, 6163104.980435, 1759039.693100, 6163301.040100],
+        source: new XYZ({
+            attributions: '',
+            minZoom: 10,
+            maxZoom: 24,
+            url: 'https://data.ortsarchiv-gemeinlebarn.org/meilensteine/geo/tiles/before3857/{z}/{x}/{y}.png',
+            tileSize: [256, 256]
+        }),
+        zIndex: 50
+    }));
 
     map.addLayer(new VectorLayer({
         source: new VectorSource({
