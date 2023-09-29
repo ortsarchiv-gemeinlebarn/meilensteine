@@ -1,5 +1,5 @@
 import { GeoJSON } from 'ol/format';
-import { OSM, Vector as VectorSource, XYZ } from 'ol/source';
+import { Vector as VectorSource, XYZ } from 'ol/source';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import { Circle as CircleStyle, Stroke, Fill, Style } from 'ol/style';
 
@@ -281,4 +281,72 @@ document.getElementById("map-strassen")?.addEventListener("readyMap", ($event) =
         ],
         zIndex: 101
     }));
+});
+
+
+
+let screenMap;
+
+document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) => {
+    screenMap = $event.detail;
+
+    console.log("readyMap");
+
+    screenMap.getView().setCenter([1758950, 6163175]);
+    screenMap.getView().setZoom(19);
+
+    screenMap.addLayer(new VectorLayer({
+        source: new VectorSource({
+            features: new GeoJSON().readFeatures(referenzlinien)
+        }),
+        style: [
+            new Style({
+                stroke: new Stroke({
+                    color: 'rgba(0, 0, 0, 0.35)',
+                    width: 1,
+                })
+            })
+        ],
+        zIndex: 99
+    }));
+
+    screenMap.addLayer(new VectorLayer({
+        source: new VectorSource({
+            features: new GeoJSON().readFeatures(schotterentnahmen)
+        }),
+        style: [
+            new Style({
+                stroke: new Stroke({
+                    color: 'rgba(255, 255, 0, 0.75)',
+                    width: 1,
+                }),
+                fill: new Fill({
+                    color: 'rgba(255, 255, 0, 0.35)',
+                })
+            })
+        ],
+        zIndex: 90
+    }));
+});
+
+document.querySelectorAll('oag-screen-content-layer-item').forEach(el => {
+    el.addEventListener('showLayer', event => console.log(event));
+    el.addEventListener('hideLayer', event => console.log(event));
+    el.addEventListener('highlightLayer', event => { console.log("highlightLayer!") })
+});
+
+document.querySelectorAll('oag-screen-background-layer-item').forEach(el => {
+    el.addEventListener('click', event => {
+
+        const slug = event.srcElement.getAttribute('slug');
+
+        document.querySelectorAll('oag-screen-background-layer-item').forEach(e => e.setAttribute('active', 'false'));
+        event.srcElement.setAttribute('active', 'true');
+
+        screenMap.getLayers().forEach(l => {
+            console.log(l.values_.name);
+            l.setVisible(l.values_.name.indexOf(slug) > -1)
+        });
+
+    });
 });
