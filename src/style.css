@@ -13,6 +13,15 @@ oag-map {
     background-color: #f4f4f4;
 }
 
+oag-screen-map {
+    --open-left: calc(2 * var(--default-layout-padding));
+    --open-bottom: calc(2 * var(--default-layout-padding));
+    --open-tranform: none;
+    --close-left: calc(2 * var(--default-layout-padding));
+    --close-bottom: calc(2 * var(--default-layout-padding));
+    --close-tranform: none;
+}
+
 .imprint {
     font-size: 0.9em;
     color: #777;

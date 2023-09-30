@@ -1,0 +1,387 @@
+{
+    "type": "FeatureCollection",
+    "name": "Wachtürme",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:EPSG:4326"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.394786,
+                    48.276031
+                ]
+            },
+            "properties": {
+                "id": 13341,
+                "url": "\/vici\/13341\/json",
+                "title": "Aggsbach",
+                "kind": "watchtower",
+                "kindId": 15,
+                "isvisible": false,
+                "accuracy": 3,
+                "summary": "Aggsbach",
+                "text": "",
+                "altLang": "nl",
+                "altText": "<p>Aggsbach<\/p>",
+                "extIds": "",
+                "createDate": "2013-02-17",
+                "creatorId": 43,
+                "creatorUser": "johaahlf",
+                "creatorName": "Johan \u00c5hlfeldt",
+                "editDate": "2020-01-05",
+                "editorId": 1588,
+                "editorUser": "Alexios",
+                "editorName": "Sascha Rennhofer",
+                "images": [
+                    {
+                        "id": 15426,
+                        "path": "\/uploads\/blashauskapelle.jpg",
+                        "title": "Blashauskapelle",
+                        "description": "Blashauskapelle bei Aggsbach\/Dorf\/N\u00d6. Darunter Fundstelle r\u00f6mischer Burgus.",
+                        "isdefault": "1",
+                        "uploader": "Sascha Rennhofer",
+                        "ownwork": "1",
+                        "creator": "",
+                        "attribution": "",
+                        "date": "2020-01-04 20:48:00",
+                        "license": "Creative Commons Attribution-ShareAlike 3.0"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.444957,
+                    48.369476
+                ]
+            },
+            "properties": {
+                "id": 13346,
+                "url": "\/vici\/13346\/json",
+                "title": "Bacharnsdorf",
+                "kind": "watchtower",
+                "kindId": 15,
+                "isvisible": true,
+                "accuracy": 0,
+                "summary": "Bacharnsdorf",
+                "text": "",
+                "altLang": "nl",
+                "altText": "<p>Bacharnsdorf<\/p>",
+                "extIds": "",
+                "createDate": "2013-02-17",
+                "creatorId": 43,
+                "creatorUser": "johaahlf",
+                "creatorName": "Johan \u00c5hlfeldt",
+                "editDate": "2020-01-02",
+                "editorId": 1588,
+                "editorUser": "Alexios",
+                "editorName": "Sascha Rennhofer",
+                "images": [
+                    {
+                        "id": 10590,
+                        "path": "\/uploads\/img_1543.jpg",
+                        "title": "Bacharnsdorf",
+                        "description": "",
+                        "isdefault": "1",
+                        "uploader": "Werner Doenni",
+                        "ownwork": "1",
+                        "creator": "",
+                        "attribution": "",
+                        "date": "2017-06-05 15:20:02",
+                        "license": "Creative Commons Attribution-ShareAlike 3.0"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.68038,
+                    48.379665
+                ]
+            },
+            "properties": {
+                "id": 13342,
+                "url": "\/vici\/13342\/json",
+                "title": "Burgus Hollenburg",
+                "kind": "watchtower",
+                "kindId": 15,
+                "isvisible": false,
+                "accuracy": 3,
+                "summary": "Roman small castle.",
+                "text": "<p>https:\/\/de.wikipedia.org\/wiki\/Burgus_Hollenburg<\/p>",
+                "altLang": "nl",
+                "altText": "<p>Bertholdstein, Hollenburg<\/p>",
+                "extIds": "",
+                "createDate": "2013-02-17",
+                "creatorId": 43,
+                "creatorUser": "johaahlf",
+                "creatorName": "Johan \u00c5hlfeldt",
+                "editDate": "2020-01-05",
+                "editorId": 1588,
+                "editorUser": "Alexios",
+                "editorName": "Sascha Rennhofer",
+                "images": [
+                    {
+                        "id": 15424,
+                        "path": "\/uploads\/hollenburg_hausberg_bertholdstein.jpg",
+                        "title": "Ruine Bertholdstein",
+                        "description": "Ansicht der Ruine Bertholdstein von Osten.",
+                        "isdefault": "1",
+                        "uploader": "Sascha Rennhofer",
+                        "ownwork": "0",
+                        "creator": "Bauer Karl",
+                        "attribution": "",
+                        "date": "2020-01-04 14:14:05",
+                        "license": "CCO \/ No Rights Reserved"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.830813,
+                    48.348564
+                ]
+            },
+            "properties": {
+                "id": 13377,
+                "url": "\/vici\/13377\/json",
+                "title": "Maria Ponsee",
+                "kind": "watchtower",
+                "kindId": 15,
+                "isvisible": false,
+                "accuracy": 3,
+                "summary": "Maria Ponsee",
+                "text": "",
+                "altLang": "nl",
+                "altText": "<p>Maria Ponsee<\/p>",
+                "extIds": "",
+                "createDate": "2013-02-17",
+                "creatorId": 43,
+                "creatorUser": "johaahlf",
+                "creatorName": "Johan \u00c5hlfeldt",
+                "editDate": "2020-01-02",
+                "editorId": 1588,
+                "editorUser": "Alexios",
+                "editorName": "Sascha Rennhofer",
+                "images": []
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.348421,
+                    48.239265
+                ]
+            },
+            "properties": {
+                "id": 10555,
+                "url": "\/vici\/10555\/json",
+                "title": "Burgus Spielberg",
+                "kind": "watchtower",
+                "kindId": 15,
+                "isvisible": false,
+                "accuracy": 3,
+                "summary": "Burgus Spielberg",
+                "text": "",
+                "altLang": "nl",
+                "altText": "<p>Spielberg, Melk<\/p>",
+                "extIds": "",
+                "createDate": "2012-11-30",
+                "creatorId": 45,
+                "creatorUser": "rgilbert",
+                "creatorName": "Randal Gilbert",
+                "editDate": "2020-03-31",
+                "editorId": 1631,
+                "editorUser": "Veleius",
+                "editorName": "Veleius",
+                "images": [
+                    {
+                        "id": 15427,
+                        "path": "\/uploads\/turmstelle_donaubrucke_spielberg.jpg",
+                        "title": "Wachturm Spielberg",
+                        "description": "Einstiger Standort des r\u00f6mischen Burgus von Spielberg, heute durch einen der S\u00fcdpfeiler der Donaubr\u00fccke \u00fcberbaut.",
+                        "isdefault": "1",
+                        "uploader": "Sascha Rennhofer",
+                        "ownwork": "1",
+                        "creator": "",
+                        "attribution": "",
+                        "date": "2020-01-04 20:55:09",
+                        "license": "Creative Commons Attribution-ShareAlike 3.0"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.409834,
+                    48.336826
+                ]
+            },
+            "properties": {
+                "id": 50988,
+                "url": "\/vici\/50988\/json",
+                "title": "Sankt Johann im Mauerthale",
+                "kind": "watchtower",
+                "kindId": 15,
+                "isvisible": true,
+                "accuracy": 1,
+                "summary": "Roman Watchtower",
+                "text": "<p>https:\/\/www.academia.edu\/17540232\/Oliver_Fries_St._Johann_im_Mauerthale_r%C3%B6mischer_Wachturm_und_mittelalterlicher_Sakralbau._Ein_Vorbericht_zu_einer_Bauforschung._In_Das_Waldivertel_64_2015_S._282-288n<\/p>",
+                "altLang": "de",
+                "altText": " <p>Entlang dem s&uuml;dlichen Donauufer existierte teilweise bis ins Mittelalter hinein keine durchgehende Stra&szlig;en- bzw. Wegeverbindung. Der Nordabfall des Dunkelsteinerwald reichte an einigen Stellen bis an den Uferbereich. Die wenigen flachen Anlandungen wurden periodisch von den Hochw&auml;ssern &uuml;berschwemmt. Die r&ouml;mische Heerstra&szlig;e verlief &uuml;ber die Hochfl&auml;chen des Dunkelsteinerwaldes von Mautern &uuml;ber Bergern, Schenkenbrunn, Aggsbach Dorf nach Melk, wo sie in die &bdquo;Limesstra&szlig;e&ldquo; einm&uuml;ndete. Stichstra&szlig;en f&uuml;hrten durch die Talschluchten zu den Wacht&uuml;rmen am Donauufer, die in Sichtweite zueinander standen. In der Wachau verlief ein Abschnitt des norischen Limes, von dem sich bis heute zahlreiche bauliche &Uuml;berreste erhalten haben. Von einigen seiner Festungswerke bestehen noch aufrechte Strukturen, wobei tw. auch noch die Rundbogenfenster der Obergeschosse erhalten sind. Vermutlich wurden die T&uuml;rme von St. Lorenz und St. Johann nach Abzug der R&ouml;mer von Dienstmannen des Salzburgischen Kirchenbesitzes weiterbenutzt und sp&auml;ter Kirchen an sie angef&uuml;gt oder aus ihren Steinen erbaut.<\/p> <p>Wachturm St. Johann: Nordmauer und NO-Ecke mutma&szlig;lich im Glockenturm der Johanneskirche erhalten.<\/p> <h2>Siehe auch:<\/h2> <p>https:\/\/de.wikipedia.org\/wiki\/Limest%C3%BCrme_in_der_Wachau<\/p>",
+                "extIds": "",
+                "createDate": "2018-03-29",
+                "creatorId": 1028,
+                "creatorUser": "Belizarius",
+                "creatorName": "Ludwinski",
+                "editDate": "2020-03-31",
+                "editorId": 1631,
+                "editorUser": "Veleius",
+                "editorName": "Veleius",
+                "images": [
+                    {
+                        "id": 15425,
+                        "path": "\/uploads\/sankt_johann_im_mauerthale_rossatz_arnsdorf_kirche.jpg",
+                        "title": "Sankt Johann im Mauerthale Rossatz-Arnsdorf Kirche",
+                        "description": "Ansicht aus Nordost.",
+                        "isdefault": "1",
+                        "uploader": "Sascha Rennhofer",
+                        "ownwork": "0",
+                        "creator": "BSonne",
+                        "attribution": "",
+                        "date": "2020-01-04 14:35:54",
+                        "license": "Creative Commons Attribution 3.0"
+                    },
+                    {
+                        "id": 15779,
+                        "path": "\/uploads\/befundskizze_wt_st._johann_i._mauertale.png",
+                        "title": "Befundskizze",
+                        "description": "(2015) des mutma\u00dflichen r\u00f6mischen Wachturms in der Kirche St. Johann im Mauertale, \u00d6sterreich.",
+                        "isdefault": "0",
+                        "uploader": "Veleius",
+                        "ownwork": "1",
+                        "creator": "",
+                        "attribution": "",
+                        "date": "2020-03-31 22:25:26",
+                        "license": "Creative Commons Attribution-ShareAlike 3.0"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.475319,
+                    48.392567
+                ]
+            },
+            "properties": {
+                "id": 13364,
+                "url": "\/vici\/13364\/json",
+                "title": "Sankt Lorenz, Rossatz-Arnsdorf",
+                "kind": "watchtower",
+                "kindId": 15,
+                "isvisible": true,
+                "accuracy": 1,
+                "summary": "Sankt Lorenz, Rossatz-Arnsdorf",
+                "text": "",
+                "altLang": "nl",
+                "altText": "<p>Sankt Lorenz, Rossatz-Arnsdorf<\/p>",
+                "extIds": "",
+                "createDate": "2013-02-17",
+                "creatorId": 43,
+                "creatorUser": "johaahlf",
+                "creatorName": "Johan \u00c5hlfeldt",
+                "editDate": "2020-01-02",
+                "editorId": 1588,
+                "editorUser": "Alexios",
+                "editorName": "Sascha Rennhofer",
+                "images": [
+                    {
+                        "id": 10591,
+                        "path": "\/uploads\/sankt_lorenz.jpg",
+                        "title": "Sankt Lorenz",
+                        "description": "",
+                        "isdefault": "1",
+                        "uploader": "Werner Doenni",
+                        "ownwork": "1",
+                        "creator": "",
+                        "attribution": "",
+                        "date": "2017-06-05 15:22:46",
+                        "license": "Creative Commons Attribution-ShareAlike 3.0"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.521359,
+                    48.383366
+                ]
+            },
+            "properties": {
+                "id": 13363,
+                "url": "\/vici\/13363\/json",
+                "title": "Windstallgraben, Rossatz-Arnsdorf",
+                "kind": "watchtower",
+                "kindId": 15,
+                "isvisible": true,
+                "accuracy": 0,
+                "summary": "Windstallgraben, Rossatz-Arnsdorf",
+                "text": "",
+                "altLang": "nl",
+                "altText": "<p>Windstallgraben, Rossatz-Arnsdorf<\/p>",
+                "extIds": "",
+                "createDate": "2013-02-17",
+                "creatorId": 43,
+                "creatorUser": "johaahlf",
+                "creatorName": "Johan \u00c5hlfeldt",
+                "editDate": "2020-01-02",
+                "editorId": 1588,
+                "editorUser": "Alexios",
+                "editorName": "Sascha Rennhofer",
+                "images": [
+                    {
+                        "id": 1328,
+                        "path": "\/uploads\/rossatzbach_tower_anita.jpg",
+                        "title": "Rossatzbach tower",
+                        "description": "",
+                        "isdefault": "1",
+                        "uploader": "Ren\u00e9 Voorburg",
+                        "ownwork": "0",
+                        "creator": "Livius.org",
+                        "attribution": "\u00a9 <a href=\"http:\/\/livius.org\">Livius.org<\/a>",
+                        "date": "2013-12-18 10:42:07",
+                        "license": "Creative Commons Attribution-ShareAlike 3.0"
+                    }
+                ]
+            }
+        }
+    ]
+}

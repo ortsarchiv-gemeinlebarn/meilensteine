@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"name": "referenzpunkte_3857",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "6556 H" }, "geometry": { "type": "Point", "coordinates": [ 1758917.37324319104664, 6163202.637919967994094 ] } },
+{ "type": "Feature", "properties": { "name": "6556 A" }, "geometry": { "type": "Point", "coordinates": [ 1758912.64442055975087, 6163198.076265102252364 ] } },
+{ "type": "Feature", "properties": { "name": "6556 G" }, "geometry": { "type": "Point", "coordinates": [ 1758917.268094424623996, 6163193.480968881398439 ] } },
+{ "type": "Feature", "properties": { "name": "6556 D" }, "geometry": { "type": "Point", "coordinates": [ 1758920.182556316955015, 6163186.336623747833073 ] } },
+{ "type": "Feature", "properties": { "name": "6556 F" }, "geometry": { "type": "Point", "coordinates": [ 1758929.222680924925953, 6163187.162889801897109 ] } },
+{ "type": "Feature", "properties": { "name": "6556 B" }, "geometry": { "type": "Point", "coordinates": [ 1758935.740797530394047, 6163191.421235295012593 ] } },
+{ "type": "Feature", "properties": { "name": "6556 C" }, "geometry": { "type": "Point", "coordinates": [ 1758924.927524317055941, 6163202.497126821428537 ] } },
+{ "type": "Feature", "properties": { "name": "6556 E" }, "geometry": { "type": "Point", "coordinates": [ 1758926.87788491952233, 6163202.190365627408028 ] } },
+{ "type": "Feature", "properties": { "name": null }, "geometry": { "type": "Point", "coordinates": [ 1758930.197302680695429, 6163200.235728443600237 ] } },
+{ "type": "Feature", "properties": { "name": null }, "geometry": { "type": "Point", "coordinates": [ 1758931.102661770069972, 6163197.217928075231612 ] } },
+{ "type": "Feature", "properties": { "name": null }, "geometry": { "type": "Point", "coordinates": [ 1758934.180694897891954, 6163198.189324399456382 ] } },
+{ "type": "Feature", "properties": { "name": null }, "geometry": { "type": "Point", "coordinates": [ 1758936.332457244861871, 6163200.180905822664499 ] } }
+]
+}

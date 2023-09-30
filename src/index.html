@@ -10,10 +10,33 @@
     <link rel="stylesheet" href="../node_modules/@ortsarchiv-gemeinlebarn/components/dist/oag-components/oag-components.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="app.js"></script>
+
+    <style>
+        .pulsate {
+            border: 10px solid red;
+            background: tranparent;
+            -webkit-border-radius: 60px;
+            -moz-border-radius: 60px;
+            border-radius: 60px;
+            height: 50px;
+            width: 50px;
+            -webkit-animation: pulse 1s ease-out;
+            -moz-animation: pulse 1s ease-out;
+            animation: pulse 1s ease-out;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            z-index: 1;
+            opacity: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <oag-application>
+    <oag-application desktop-optimized="true">
 
         <oag-hero
             id="hero"
@@ -34,7 +57,7 @@
             caption="Kastelle und Wachtürme am Donau-Limes"
             reference="oag-a-ufg-1-1-1">
 
-            <oag-map id="map-standorte" background-layer="standard"></oag-map>
+            <oag-map id="map-kontext" background-layer="standard"></oag-map>
         </oag-figure>
 
         <!-- Die Ausgrabungen -->
@@ -110,7 +133,7 @@
             caption="Rekonstruktion des Straßenverlaufs aufgrund von Schottenentnahmen"
             reference="oag-a-ufg-1-1-1">
 
-            <oag-map id="map-schotterentnahmen" background-layer="orthophoto"></oag-map>
+            <oag-map id="map-strasse" background-layer="orthophoto"></oag-map>
         </oag-figure>
 
         <oag-figure caption="Die im Schnitt sichbaren Straßen mit dazwischenliegenden Humusschichten" reference="oag-a-ufg-1-1-1">
@@ -196,27 +219,36 @@
             <p><strong>Medieninhaber:</strong> Jakob Vesely, Neubaugasse 17, 3133 Gemeinlebarn, <a href="mailto:contact@jakob.fyi">contact@jakob.fyi</a>, <a href="https://www.jakob.fyi" target="_blank" rel="noopener noreferrer">www.jakob.fyi</a></p>
         </oag-content>
 
-        <oag-screen-map opened="true">
-            <h2>Meilensteinfund 1997</h2>
-            <oag-screen-content-layer-item slug="meilensteine" color="#d2232a">
+        <oag-screen-map opened="false" label-open="Übersichtskarte öffnen" label-close="Übersichtskarte schließen">
+            <h2>Fundort</h2>
+            <oag-screen-content-layer-item slug="fundort-meilensteine" color="#d2232a">
                 Meilensteine
             </oag-screen-content-layer-item>
-            <oag-screen-content-layer-item slug="loecher" color="yellow">
+            <oag-screen-content-layer-item slug="fundort-loecher" color="yellow">
                 Pfahllöcher
             </oag-screen-content-layer-item>
-            <oag-screen-content-layer-item slug="schotterentnahmen-1997">
-                Geöffnete Schotterentnahmen
+            <oag-screen-content-layer-item slug="fundort-schotterentnahmen">
+                Schotterentnahmen
+            </oag-screen-content-layer-item>
+            <oag-screen-content-layer-item slug="fundort-strasse">
+                Römische Straße
             </oag-screen-content-layer-item>
 
-            <h2>Römische Gegend</h2>
-            <oag-screen-content-layer-item slug="schotterentnahmen">
+            <h2>Umgebung</h2>
+            <oag-screen-content-layer-item slug="umgebung-schotterentnahmen">
                 Schotterentnahmen entlang der B43 (ab 1973)
             </oag-screen-content-layer-item>
-            <oag-screen-content-layer-item slug="Römerstraße">
-                Römerstraße
+            <oag-screen-content-layer-item slug="umgebung-strasse">
+                Straße Tulln - St. Pölten
             </oag-screen-content-layer-item>
             <oag-screen-content-layer-item slug="kastelle">
-                Kastelle, Wachtürme und Zentren in der Nähe
+                Kastelle in der Nähe
+            </oag-screen-content-layer-item>
+            <oag-screen-content-layer-item slug="wachtuerme">
+                Wachtürme und Zentren in der Nähe
+            </oag-screen-content-layer-item>
+            <oag-screen-content-layer-item slug="staedte">
+                St. Pölten und Wien
             </oag-screen-content-layer-item>
 
             <h2>Hintergrundkarte</h2>
