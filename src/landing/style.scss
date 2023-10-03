@@ -58,7 +58,7 @@ body {
 oag-hero {
     font-size: 0.8em;
     --p: calc(1.5 * var(--default-layout-padding));
-    --overlay-padding: var(--p) var(--p) 180px var(--p);
+    --overlay-padding: 180px var(--p) var(--p) var(--p);
     --component-content-direction: column-reverse;
 
     p {
