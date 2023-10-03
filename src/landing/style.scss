@@ -9,65 +9,50 @@ body {
     padding: 0;
 }
 
-.termin {
-    background-color: rgba(255, 255, 255, 0.95);
-    color: #000;
-    display: flex;
-    flex-direction: row;
-    padding: var(--default-layout-padding);
-    border-radius: var(--default-radius);
-    gap: var(--default-layout-padding);
-    margin-top: 2em;
-
-    &--mobile {
-        display: none;
-    }
-
-    .icon {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        svg {
-            width: 34px;
-        }
-    }
-
-    .text {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-
-        h2 {
-            margin-top: 0px;
-            margin-bottom: 0.5em;
-        }
-
-        h3 {
-            margin-bottom: 0em;
-            margin-bottom: 0.5em;
-        }
-
-        &__last-line {
-            margin-top: 1em;
-            font-style: italic;
-        }
-    }
+oag-application {
+    gap: 0;
 }
 
-oag-hero {
-    font-size: 0.8em;
-    --p: calc(1.5 * var(--default-layout-padding));
-    --overlay-padding: 180px var(--p) var(--p) var(--p);
-    --component-content-direction: column-reverse;
-
-    p {
-        font-size: 1.1rem;
-    }
+.headline {
+    font-size: 2.5rem;
+    padding-top: 3em;
+    padding-bottom: .5em;
 }
 
-oag-information {
-    background-color: #fff;
+.date {
+    font-size: 1.75rem;
+}
+
+.caption {
+    font-weight: normal;
+    color: #777;
+    font-size: 1.35rem;
+}
+
+.facts {
+    font-size: 1.5rem;
+    margin: 1.5em 0;
+}
+
+p {
+    font-size: 1.1em;
+}
+
+.publish {
+    margin-top: 1em;
+    font-style: italic;
+}
+
+oag-figure {
+    margin: 2em 0em;
+}
+
+.meilensteine {
+    height: 250px;
+    background-image: url(https://data.ortsarchiv-gemeinlebarn.org/meilensteine/vectors/meilensteine.svg);
+    max-width: 600px;
+    width: 100%;
+    background-size: cover;
 }
 
 .imprint {
@@ -78,28 +63,7 @@ oag-information {
 
 @media screen and (max-width: 600px) {
 
-
-    oag-information {
-        background-color: rgb(244, 244, 244);
-    }
-
-    oag-hero {
-        font-size: 0.75em;
-        min-height: auto;
-        --logo-display: none;
-        --caption-display: none;
-        --overlay-padding: calc(1.5 * var(--default-layout-padding));
-    }
-
-    .termin {
-        &--desktop {
-            display: none;
-        }
-
-        &--mobile {
-            display: flex;
-            margin-top: 0;
-            padding-top: 0;
-        }
+    .headline {
+        padding-top: 1em;
     }
 }
