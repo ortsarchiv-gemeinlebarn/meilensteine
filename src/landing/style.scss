@@ -9,18 +9,14 @@ body {
     padding: 0;
 }
 
-oag-application {
-    gap: 0;
-}
-
 .headline {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     padding-top: 3em;
-    padding-bottom: .5em;
+    padding-bottom: 1.5em;
 }
 
 .date {
-    font-size: 1.75rem;
+    font-size: 2rem;
 }
 
 .caption {
@@ -39,20 +35,29 @@ p {
 }
 
 .publish {
-    margin-top: 1em;
+    margin-top: 2em;
     font-style: italic;
 }
 
 oag-figure {
-    margin: 2em 0em;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .meilensteine {
-    height: 250px;
-    background-image: url(https://data.ortsarchiv-gemeinlebarn.org/meilensteine/vectors/meilensteine.svg);
-    max-width: 600px;
-    width: 100%;
-    background-size: cover;
+    position: relative;
+    bottom: -2em;
+
+    &__image {
+        display: block;
+        margin: 0 auto;
+        height: 400px;
+        background-image: url(https://data.ortsarchiv-gemeinlebarn.org/meilensteine/vectors/meilensteine_pfaehle.svg);
+        background-position: top center;
+        max-width: 350px;
+        width: 100%;
+        background-size: cover;
+    }
 }
 
 .imprint {
