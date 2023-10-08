@@ -14,6 +14,7 @@ oag-map {
 }
 
 oag-screen-map {
+    --screen-map-background-color: #eee;
     --open-left: calc(2 * var(--default-layout-padding));
     --open-bottom: calc(2 * var(--default-layout-padding));
     --open-tranform: none;

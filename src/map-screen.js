@@ -4,13 +4,9 @@ import { Vector as VectorLayer } from 'ol/layer';
 import { Circle as CircleStyle, Stroke, Fill, Style } from 'ol/style';
 import { createEmpty, getCenter, extend as extendExtent } from 'ol/extent';
 import { easeOut } from 'ol/easing';
-import { Overlay } from 'ol';
+import { OrthofotoBasemap, OrthofotoBev2017250, FundortMeilensteine, FundortLoecher } from './layers';
 
-
-import * as fundort_meilensteine from '../data/fundort/meilensteine_3857.json';
-import * as fundort_loecher from '../data/fundort/loecher_3857.json';
 import * as fundort_schotterentnahmen from '../data/fundort/schotterentnahmen_3857.json';
-import * as fundort_referenzlinien from '../data/fundort/referenzlinien_3857.json';
 import * as fundort_strasse from '../data/fundort/strasse_3857.json';
 import * as umgebung_schotterentnahmen from '../data/umgebung/schotterentnahmen_3857.json';
 import * as umgebung_strasse_gesichert from '../data/umgebung/strasse_gesichert_3857.json';
@@ -21,6 +17,11 @@ import * as wachtuerme from '../data/kontext/wachtuerme.json';
 import * as staedte from '../data/kontext/staedte.json';
 
 let screenMap;
+
+const backgroundLayers = {
+    basemapOrthofoto: OrthofotoBasemap,
+    ortho2017: OrthofotoBev2017250
+};
 
 const screenlayers = {
     fundort_meilensteine: null,
@@ -41,56 +42,8 @@ document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) =
     screenMap.getView().setCenter([1758950, 6163175]);
     screenMap.getView().setZoom(19);
 
-    screenlayers.fundort_meilensteine = new VectorLayer({
-        source: new VectorSource({
-            features: new GeoJSON().readFeatures(fundort_meilensteine)
-        }),
-        style: [
-            new Style({
-                stroke: new Stroke({
-                    color: 'rgba(255, 0, 0, 0.75)',
-                    width: 1,
-                }),
-                fill: new Fill({
-                    color: 'rgba(255, 0, 0, 0.35)',
-                })
-            })
-        ],
-        zIndex: 200
-    });
-
-    screenlayers.fundort_loecher = new VectorLayer({
-        source: new VectorSource({
-            features: new GeoJSON().readFeatures(fundort_loecher)
-        }),
-        style: [
-            new Style({
-                stroke: new Stroke({
-                    color: 'rgba(255, 0, 0, 0.75)',
-                    width: 1,
-                }),
-                fill: new Fill({
-                    color: 'rgba(255, 0, 0, 0.35)',
-                })
-            })
-        ],
-        zIndex: 200
-    });
-
-    screenlayers.fundort_referenzlinien = new VectorLayer({
-        source: new VectorSource({
-            features: new GeoJSON().readFeatures(fundort_referenzlinien)
-        }),
-        style: [
-            new Style({
-                stroke: new Stroke({
-                    color: 'rgba(0, 0, 0, 0.35)',
-                    width: 1,
-                })
-            })
-        ],
-        zIndex: 99
-    });
+    screenlayers.fundort_meilensteine = FundortMeilensteine;
+    screenlayers.fundort_loecher = FundortLoecher;
 
     screenlayers.fundort_schotterentnahmen = new VectorLayer({
         source: new VectorSource({
@@ -151,7 +104,6 @@ document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) =
     });
 
     // Kontext
-
     screenlayers.kastelle = new VectorLayer({
 
         source: new VectorSource({
@@ -272,17 +224,17 @@ document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) =
         zIndex: 101
     });
 
+    screenMap.addLayer(backgroundLayers.basemapOrthofoto);
+    screenMap.addLayer(backgroundLayers.ortho2017);
+
     screenMap.addLayer(screenlayers.fundort_meilensteine);
     screenMap.addLayer(screenlayers.fundort_loecher);
     screenMap.addLayer(screenlayers.fundort_schotterentnahmen);
-    screenMap.addLayer(screenlayers.fundort_referenzlinien);
     screenMap.addLayer(screenlayers.fundort_strasse);
     screenMap.addLayer(screenlayers.umgebung_schotterentnahmen);
     screenMap.addLayer(screenlayers.kastelle);
     screenMap.addLayer(screenlayers.wachtuerme);
     screenMap.addLayer(screenlayers.staedte);
-
-    screenlayers.fundort_referenzlinien.setVisible(false);
 });
 
 document.querySelectorAll('oag-screen-content-layer-item').forEach(el => {
@@ -299,10 +251,14 @@ document.querySelectorAll('oag-screen-background-layer-item').forEach(el => {
         document.querySelectorAll('oag-screen-background-layer-item').forEach(e => e.setAttribute('active', 'false'));
         event.srcElement.setAttribute('active', 'true');
 
-        screenMap.getLayers().forEach(l => {
-            console.log(l.values_.name);
-            l.setVisible(l.values_.name.indexOf(slug) > -1)
-        });
+        if (slug == 'basemap-orthophoto') {
+            backgroundLayers.basemapOrthofoto.setVisible(true);
+            backgroundLayers.ortho2017.setVisible(false);
+        }
+        if (slug == 'bev-2017') {
+            backgroundLayers.basemapOrthofoto.setVisible(true);
+            backgroundLayers.ortho2017.setVisible(true);
+        }
 
     });
 });
@@ -337,7 +293,7 @@ function getScreenLayerBySlug(slug) {
 
 function highlightInScreenMap(slug) {
 
-    const duration = 1000;
+    const duration = 2000;
     const maxZoom = 23;
 
     const view = screenMap.getView();
@@ -363,20 +319,43 @@ function highlightInScreenMap(slug) {
         easing: easeOut
     });
 
-    setTimeout(() => features.forEach(feature => pulsatingCircleAnimation(feature)), duration);
+    flash(layer, duration / 2);
 }
 
-function pulsatingCircleAnimation(feature) {
-    const coordinates = getCenter(feature.getGeometry().getExtent());
-    const element = document.createElement('div');
-    element.setAttribute('class', 'pulsate');
+function flash(layer, duration) {
 
-    const overlay = new Overlay({
-        element: element,
-        position: coordinates,
-        positioning: 'center-center',
-        offset: [1, 1]
-    });
+    let countUp = 0;
+    let countDown = 0;
+    const steps = 100;
+    const maxOpacity = 1.0;
+    const minOpacity = 0.1;
 
-    // screenMap.addOverlay(overlay);
+    const up = setInterval(() => {
+        const op = (maxOpacity - minOpacity) / steps;
+
+        screenMap.getLayers().forEach(l => {
+            if (layer.ol_uid != l.ol_uid) {
+                l.setOpacity(maxOpacity - op * countUp);
+            }
+        });
+
+        countUp++;
+        if (countUp > steps) clearInterval(up);
+    }, (duration / steps));
+
+    setTimeout(() => {
+        const down = setInterval(() => {
+
+            const op = (maxOpacity - minOpacity) / steps;
+
+            screenMap.getLayers().forEach(l => {
+                if (layer.ol_uid != l.ol_uid) {
+                    l.setOpacity(minOpacity + op * countDown);
+                }
+            });
+
+            countDown++;
+            if (countDown > steps) clearInterval(down);
+        }, (duration / steps));
+    }, duration * 1.33);
 }
