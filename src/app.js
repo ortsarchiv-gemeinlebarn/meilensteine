@@ -11,7 +11,7 @@ const application = document.getElementById("application");
 
 application?.addEventListener("loaded", () => {
     preloading.style = "display:none";
-    application.style = "display:block";
+    application.style = "display:flex";
 });
 
 import './map-screen';
