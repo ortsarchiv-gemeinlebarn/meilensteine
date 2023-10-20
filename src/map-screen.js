@@ -4,17 +4,20 @@ import { Vector as VectorLayer } from 'ol/layer';
 import { Circle as CircleStyle, Stroke, Fill, Style } from 'ol/style';
 import { createEmpty, getCenter, extend as extendExtent } from 'ol/extent';
 import { easeOut } from 'ol/easing';
-import { OrthofotoBasemap, OrthofotoBev2017250, FundortMeilensteine, FundortLoecher } from './layers';
+import { OrthofotoBasemap, OrthofotoBev2017250 } from './layers';
+import { KastellStyle, WachtpostenStyle, MeilensteinOrteStyle, StaedteStyle, SchotterentnahmenStyle, FundortPfahlloecherStyle, FundortMeilensteineStyle, FundortStrasseStyle, StrassenVerlaufStyle } from './layers-styles';
 
 import * as fundort_schotterentnahmen from '../data/fundort/schotterentnahmen_3857.json';
+import * as fundort_meilensteine from '../data/fundort/meilensteine_3857.json';
+import * as fundort_loecher from '../data/fundort/loecher_3857.json';
 import * as fundort_strasse from '../data/fundort/strasse_3857.json';
 import * as umgebung_schotterentnahmen from '../data/umgebung/schotterentnahmen_3857.json';
-import * as umgebung_strasse_gesichert from '../data/umgebung/strasse_gesichert_3857.json';
-import * as umgebung_strasse_ungesichert from '../data/umgebung/strasse_ungesichert_3857.json';
+import * as umgebung_strasse from '../data/umgebung/strasse_verlauf_3857.json';
 
-import * as kastelle from '../data/kontext/kastelle.json';
-import * as wachtuerme from '../data/kontext/wachtuerme.json';
-import * as staedte from '../data/kontext/staedte.json';
+import * as kastelle from '../data/kontext/kastelle_3857.json';
+import * as wachposten from '../data/kontext/wachposten_3857.json';
+import * as staedte from '../data/kontext/staedte_3857.json';
+import * as meilensteine from '../data/kontext/meilensteine_3857.json';
 
 let screenMap;
 
@@ -32,9 +35,30 @@ const screenlayers = {
     umgebung_schotterentnahmen: null,
     umgebung_strasse: null,
     kastelle: null,
-    wachtuerme: null,
+    wachposten: null,
     staedte: null,
+    meilensteine: null,
 };
+
+const resetLayersStyles = () => {
+
+    screenlayers.fundort_meilensteine.setStyle((feature) => FundortMeilensteineStyle(feature.getProperties().title, false))
+    screenlayers.fundort_loecher.setStyle((feature) => FundortPfahlloecherStyle(feature.getProperties().title, false))
+    screenlayers.fundort_strasse.setStyle((feature) => FundortStrasseStyle(feature.getProperties().title, false))
+    screenlayers.fundort_schotterentnahmen.setStyle((feature) => SchotterentnahmenStyle(feature.getProperties().title, false))
+    screenlayers.umgebung_schotterentnahmen.setStyle((feature) => SchotterentnahmenStyle(feature.getProperties().title, false))
+    screenlayers.umgebung_strasse.setStyle((feature) => StrassenVerlaufStyle(feature.getProperties().title, false))
+
+    screenlayers.kastelle.setStyle((feature) => KastellStyle(feature.getProperties().title, false));
+    screenlayers.wachposten.setStyle((feature) => WachtpostenStyle(feature.getProperties().title, false));
+    screenlayers.meilensteine.setStyle((feature) => MeilensteinOrteStyle(feature.getProperties().title, false));
+    screenlayers.staedte.setStyle((feature) => StaedteStyle(feature.getProperties().title, false));
+
+    screenlayers.kastelle.setZIndex(110);
+    screenlayers.wachposten.setZIndex(110);
+    screenlayers.meilensteine.setZIndex(110);
+    screenlayers.staedte.setZIndex(110);
+}
 
 document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) => {
     screenMap = $event.detail;
@@ -42,46 +66,32 @@ document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) =
     screenMap.getView().setCenter([1758950, 6163175]);
     screenMap.getView().setZoom(19);
 
-    screenlayers.fundort_meilensteine = FundortMeilensteine;
-    screenlayers.fundort_loecher = FundortLoecher;
-
-    screenlayers.fundort_schotterentnahmen = new VectorLayer({
+    screenlayers.fundort_meilensteine = new VectorLayer({
         source: new VectorSource({
-            features: new GeoJSON().readFeatures(fundort_schotterentnahmen)
+            features: new GeoJSON().readFeatures(fundort_meilensteine)
         }),
-        style: [
-            new Style({
-                stroke: new Stroke({
-                    color: 'rgba(255, 255, 0, 0.75)',
-                    width: 1,
-                }),
-                fill: new Fill({
-                    color: 'rgba(255, 255, 0, 0.35)',
-                })
-            })
-        ],
-        zIndex: 90
+        zIndex: 200
+    });
+
+    screenlayers.fundort_loecher = new VectorLayer({
+        source: new VectorSource({
+            features: new GeoJSON().readFeatures(fundort_loecher)
+        }),
+        zIndex: 200
     });
 
     screenlayers.fundort_strasse = new VectorLayer({
         source: new VectorSource({
             features: new GeoJSON().readFeatures(fundort_strasse)
         }),
-        style: [
-            new Style({
-                stroke: new Stroke({
-                    color: 'black',
-                    width: 8,
-                })
-            }),
-            new Style({
-                stroke: new Stroke({
-                    color: 'blue',
-                    width: 6,
-                })
-            })
-        ],
         zIndex: 100
+    });
+
+    screenlayers.fundort_schotterentnahmen = new VectorLayer({
+        source: new VectorSource({
+            features: new GeoJSON().readFeatures(fundort_schotterentnahmen)
+        }),
+        zIndex: 90
     });
 
     // Umgebung
@@ -89,139 +99,45 @@ document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) =
         source: new VectorSource({
             features: new GeoJSON().readFeatures(umgebung_schotterentnahmen)
         }),
-        style: [
-            new Style({
-                stroke: new Stroke({
-                    color: 'rgba(255, 255, 0, 0.75)',
-                    width: 1,
-                }),
-                fill: new Fill({
-                    color: 'rgba(255, 255, 0, 0.35)',
-                })
-            })
-        ],
+        zIndex: 90
+    });
+
+    screenlayers.umgebung_strasse = new VectorLayer({
+        source: new VectorSource({
+            features: new GeoJSON().readFeatures(umgebung_strasse)
+        }),
         zIndex: 90
     });
 
     // Kontext
     screenlayers.kastelle = new VectorLayer({
-
         source: new VectorSource({
-            features: new GeoJSON({
-                dataProjection: 'EPSG:4326',
-                featureProjection: 'EPSG:3857'
-            }).readFeatures(kastelle)
+            features: new GeoJSON().readFeatures(kastelle)
         }),
-        style: [
-            new Style({
-                zIndex: 0,
-                image: new CircleStyle({
-                    radius: 12,
-                    fill: new Fill({
-                        color: 'blue',
-                    }),
-                }),
-            }),
-            new Style({
-                zIndex: 1,
-                image: new CircleStyle({
-                    radius: 10,
-                    fill: new Fill({
-                        color: 'yellow',
-                    }),
-                }),
-            }),
-            new Style({
-                zIndex: 2,
-                image: new CircleStyle({
-                    radius: 5,
-                    fill: new Fill({
-                        color: 'blue',
-                    }),
-                }),
-            }),
-        ],
-        zIndex: 101
+        zIndex: 110
     });
 
-    screenlayers.wachtuerme = new VectorLayer({
-
+    screenlayers.wachposten = new VectorLayer({
         source: new VectorSource({
-            features: new GeoJSON({
-                dataProjection: 'EPSG:4326',
-                featureProjection: 'EPSG:3857'
-            }).readFeatures(wachtuerme)
+            features: new GeoJSON().readFeatures(wachposten)
         }),
-        style: [
-            new Style({
-                zIndex: 0,
-                image: new CircleStyle({
-                    radius: 12,
-                    fill: new Fill({
-                        color: 'blue',
-                    }),
-                }),
-            }),
-            new Style({
-                zIndex: 1,
-                image: new CircleStyle({
-                    radius: 10,
-                    fill: new Fill({
-                        color: 'yellow',
-                    }),
-                }),
-            }),
-            new Style({
-                zIndex: 2,
-                image: new CircleStyle({
-                    radius: 5,
-                    fill: new Fill({
-                        color: 'blue',
-                    }),
-                }),
-            }),
-        ],
-        zIndex: 101
+        zIndex: 110
     });
 
     screenlayers.staedte = new VectorLayer({
 
         source: new VectorSource({
-            features: new GeoJSON({
-                dataProjection: 'EPSG:4326',
-                featureProjection: 'EPSG:3857'
-            }).readFeatures(staedte)
+            features: new GeoJSON().readFeatures(staedte)
         }),
-        style: [
-            new Style({
-                zIndex: 0,
-                image: new CircleStyle({
-                    radius: 12,
-                    fill: new Fill({
-                        color: 'blue',
-                    }),
-                }),
-            }),
-            new Style({
-                zIndex: 1,
-                image: new CircleStyle({
-                    radius: 10,
-                    fill: new Fill({
-                        color: 'yellow',
-                    }),
-                }),
-            }),
-            new Style({
-                zIndex: 2,
-                image: new CircleStyle({
-                    radius: 5,
-                    fill: new Fill({
-                        color: 'blue',
-                    }),
-                }),
-            }),
-        ],
-        zIndex: 101
+        zIndex: 110
+    });
+
+    screenlayers.meilensteine = new VectorLayer({
+
+        source: new VectorSource({
+            features: new GeoJSON().readFeatures(meilensteine)
+        }),
+        zIndex: 110
     });
 
     screenMap.addLayer(backgroundLayers.basemapOrthofoto);
@@ -232,9 +148,13 @@ document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) =
     screenMap.addLayer(screenlayers.fundort_schotterentnahmen);
     screenMap.addLayer(screenlayers.fundort_strasse);
     screenMap.addLayer(screenlayers.umgebung_schotterentnahmen);
+    screenMap.addLayer(screenlayers.umgebung_strasse);
     screenMap.addLayer(screenlayers.kastelle);
-    screenMap.addLayer(screenlayers.wachtuerme);
+    screenMap.addLayer(screenlayers.wachposten);
     screenMap.addLayer(screenlayers.staedte);
+    screenMap.addLayer(screenlayers.meilensteine);
+
+    resetLayersStyles();
 });
 
 document.querySelectorAll('oag-screen-content-layer-item').forEach(el => {
@@ -280,14 +200,18 @@ function getScreenLayerBySlug(slug) {
             return screenlayers.fundort_referenzlinien;
         case 'fundort-strasse':
             return screenlayers.fundort_strasse;
+        case 'umgebung-strasse':
+            return screenlayers.umgebung_strasse;
         case 'umgebung-schotterentnahmen':
             return screenlayers.umgebung_schotterentnahmen;
         case 'kastelle':
             return screenlayers.kastelle;
-        case 'wachtuerme':
-            return screenlayers.wachtuerme;
+        case 'wachposten':
+            return screenlayers.wachposten;
         case 'staedte':
             return screenlayers.staedte;
+        case 'meilensteine':
+            return screenlayers.meilensteine;
     }
 }
 
@@ -319,43 +243,36 @@ function highlightInScreenMap(slug) {
         easing: easeOut
     });
 
-    flash(layer, duration / 2);
-}
+    resetLayersStyles();
 
-function flash(layer, duration) {
-
-    let countUp = 0;
-    let countDown = 0;
-    const steps = 100;
-    const maxOpacity = 1.0;
-    const minOpacity = 0.1;
-
-    const up = setInterval(() => {
-        const op = (maxOpacity - minOpacity) / steps;
-
-        screenMap.getLayers().forEach(l => {
-            if (layer.ol_uid != l.ol_uid) {
-                l.setOpacity(maxOpacity - op * countUp);
-            }
-        });
-
-        countUp++;
-        if (countUp > steps) clearInterval(up);
-    }, (duration / steps));
-
-    setTimeout(() => {
-        const down = setInterval(() => {
-
-            const op = (maxOpacity - minOpacity) / steps;
-
-            screenMap.getLayers().forEach(l => {
-                if (layer.ol_uid != l.ol_uid) {
-                    l.setOpacity(minOpacity + op * countDown);
-                }
-            });
-
-            countDown++;
-            if (countDown > steps) clearInterval(down);
-        }, (duration / steps));
-    }, duration * 1.33);
+    layer.setZIndex(200);
+    switch (slug) {
+        case 'fundort-meilensteine':
+            layer.setStyle((feature) => FundortMeilensteineStyle(feature.getProperties().title, true));
+            break;
+        case 'fundort-loecher':
+            layer.setStyle((feature) => FundortPfahlloecherStyle(feature.getProperties().title, true));
+            break;
+        case 'fundort-strasse':
+            layer.setStyle((feature) => FundortStrasseStyle(feature.getProperties().title, true));
+            break;
+        case 'fundort-schotterentnahmen':
+            layer.setStyle((feature) => SchotterentnahmenStyle(feature.getProperties().title, true));
+            break;
+        case 'umgebung-schotterentnahmen':
+            layer.setStyle((feature) => SchotterentnahmenStyle(feature.getProperties().title, true));
+            break;
+        case 'umgebung-strasse':
+            layer.setStyle((feature) => StrassenVerlaufStyle(feature.getProperties().title, true));
+            break;
+        case 'kastelle':
+            layer.setStyle((feature) => KastellStyle(feature.getProperties().title, true));
+            break;
+        case 'wachposten':
+            layer.setStyle((feature) => WachtpostenStyle(feature.getProperties().title, true));
+            break;
+        case 'meilensteine':
+            layer.setStyle((feature) => MeilensteinOrteStyle(feature.getProperties().title, true));
+            break;
+    }
 }

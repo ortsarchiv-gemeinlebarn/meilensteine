@@ -23,40 +23,4 @@ const OrthofotoBev2017250 = new TileLayer({
     zIndex: 30,
 });
 
-const FundortMeilensteine = new VectorLayer({
-    source: new VectorSource({
-        features: new GeoJSON().readFeatures(fundort_meilensteine)
-    }),
-    style: [
-        new Style({
-            stroke: new Stroke({
-                color: 'rgba(255, 0, 0, 0.85)',
-                width: 1,
-            }),
-            fill: new Fill({
-                color: 'rgba(255, 0, 0, 0.65)',
-            })
-        })
-    ],
-    zIndex: 200
-});
-
-const FundortLoecher = new VectorLayer({
-    source: new VectorSource({
-        features: new GeoJSON().readFeatures(fundort_loecher)
-    }),
-    style: [
-        new Style({
-            stroke: new Stroke({
-                color: 'rgba(255, 128, 0, 0.85)',
-                width: 1,
-            }),
-            fill: new Fill({
-                color: 'rgba(255, 128, 0, 0.65)',
-            })
-        })
-    ],
-    zIndex: 200
-});
-
-export { OrthofotoBasemap, OrthofotoBev2017250, FundortMeilensteine, FundortLoecher };
+export { OrthofotoBasemap, OrthofotoBev2017250 };

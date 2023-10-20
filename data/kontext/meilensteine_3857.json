@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "meilensteine_3857",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 4, "id": 8847, "url": "/vici/8847/", "title": "Nitzing", "kind": "milestone", "zoomsmall": 8, "zoomnormal": 11, "zindex": 4, "isvisible": 1, "identified": 1, "summary": "Milestone Nitzing (CIL 17-04-01, no. 075), see http://oracle-vm.ku-eichstaett.de:8888/epigr/epieinzel_en?p_belegstelle=CIL+17-04-01,+00075. Data from http://francia.ahlfeldt.se/", "img": null }, "geometry": { "type": "Point", "coordinates": [ 1791707.464465062599629, 6159575.524283929727972 ] } },
+{ "type": "Feature", "properties": { "fid": 5, "id": 8848, "url": "/vici/8848/", "title": "Gemeinlebarn", "kind": "milestone", "zoomsmall": 8, "zoomnormal": 11, "zindex": 4, "isvisible": 0, "identified": 1, "summary": "Milestone Gemeinlebarn (CIL 17-04-01, no. 078), see http://oracle-vm.ku-eichstaett.de:8888/epigr/epieinzel_en?p_belegstelle=CIL+17-04-01,+00078. Data from http://francia.ahlfeldt.se/", "img": null }, "geometry": { "type": "Point", "coordinates": [ 1759398.986013148911297, 6163160.976427586749196 ] } },
+{ "type": "Feature", "properties": { "fid": 6, "id": 9181, "url": "/vici/9181/", "title": "Tulln an der Donau", "kind": "milestone", "zoomsmall": 8, "zoomnormal": 11, "zindex": 4, "isvisible": 0, "identified": 1, "summary": "Milestone Tulln an der Donau (CIL 17-04-01, no. 076), see http://oracle-vm.ku-eichstaett.de:8888/epigr/epieinzel_en?p_belegstelle=CIL+17-04-01,+00076. Data from http://francia.ahlfeldt.se/", "img": null }, "geometry": { "type": "Point", "coordinates": [ 1786908.369897473836318, 6162106.364030994474888 ] } },
+{ "type": "Feature", "properties": { "fid": 7, "id": 9591, "url": "/vici/9591/", "title": "Gemeinlebarn", "kind": "milestone", "zoomsmall": 8, "zoomnormal": 11, "zindex": 4, "isvisible": 0, "identified": 1, "summary": "Milestone Gemeinlebarn (CIL 17-04-01, no. 077), see http://oracle-vm.ku-eichstaett.de:8888/epigr/epieinzel_en?p_belegstelle=CIL+17-04-01,+00077. Data from http://francia.ahlfeldt.se/", "img": null }, "geometry": { "type": "Point", "coordinates": [ 1759398.986013148911297, 6163160.976427586749196 ] } }
+]
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "staedte_3857",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 9, "id": 10556, "url": "/vici/10556/", "title": "Aelium Cetium", "kind": "city", "zoomsmall": 2, "zoomnormal": 7, "zindex": 10, "isvisible": 0, "identified": 1, "summary": "Aelium Cetium", "img": null }, "geometry": { "type": "Point", "coordinates": [ 1739519.217388813849539, 6140653.90825298987329 ] } }
+]
+}

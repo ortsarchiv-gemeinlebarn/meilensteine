@@ -6,8 +6,7 @@ import { Stroke, Fill, Style } from 'ol/style';
 import * as fundort_schotterentnahmen from '../data/fundort/schotterentnahmen_3857.json';
 import * as umgebung_schotterentnahmen from '../data/umgebung/schotterentnahmen_3857.json';
 import * as fundort_strasse from '../data/fundort/strasse_3857.json';
-import * as umgebung_strasse_gesichert from '../data/umgebung/strasse_gesichert_3857.json';
-import * as umgebung_strasse_ungesichert from '../data/umgebung/strasse_ungesichert_3857.json';
+import * as umgebung_strasse from '../data/umgebung/strasse_verlauf_3857.json';
 
 document.getElementById("map-strasse")?.addEventListener("readyMap", ($event) => {
     const map = $event.detail;
@@ -81,7 +80,7 @@ document.getElementById("map-strasse")?.addEventListener("readyMap", ($event) =>
 
     map.addLayer(new VectorLayer({
         source: new VectorSource({
-            features: new GeoJSON().readFeatures(umgebung_strasse_gesichert)
+            features: new GeoJSON().readFeatures(umgebung_strasse)
         }),
         style: [
             new Style({
@@ -93,27 +92,6 @@ document.getElementById("map-strasse")?.addEventListener("readyMap", ($event) =>
             new Style({
                 stroke: new Stroke({
                     color: 'rgb(50,205,50)',
-                    width: 6,
-                })
-            })
-        ],
-        zIndex: 100
-    }));
-
-    map.addLayer(new VectorLayer({
-        source: new VectorSource({
-            features: new GeoJSON().readFeatures(umgebung_strasse_ungesichert)
-        }),
-        style: [
-            new Style({
-                stroke: new Stroke({
-                    color: 'black',
-                    width: 8,
-                })
-            }),
-            new Style({
-                stroke: new Stroke({
-                    color: 'red',
                     width: 6,
                 })
             })
