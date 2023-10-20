@@ -1,13 +1,10 @@
 
 import { Stroke, Fill, Style, Text, Icon, Circle as CircleStyle } from 'ol/style';
 
-import * as watchtowerIconBlack from '../icons/watchtower.svg';
-import * as watchtowerIconWhite from '../icons/watchtower-white.svg';
-import * as fortIconBlack from '../icons/fort.svg';
-import * as fortIconWhite from '../icons/fort-white.svg';
-import * as milestoneIconBlack from '../icons/milestone.svg';
-import * as milestoneIconWhite from '../icons/milestone-white.svg';
-import * as cityIconBlack from '../icons/city.svg';
+import * as watchtowerIcon from '../icons/watchtower.png';
+import * as fortIcon from '../icons/fort.png';
+import * as milestoneIcon from '../icons/milestone.png';
+import * as cityIcon from '../icons/city.png';
 
 const FundortPfahlloecherColors = {
     full: [240, 184, 110, 1],
@@ -68,10 +65,10 @@ const FundortPfahlloecherStyle = (label, highlight) => PolygoneStyle(label, high
 const FundortStrasseStyle = (label, highlight) => LineStyle(label, highlight, FundortStrasseColors);
 const SchotterentnahmenStyle = (label, highlight) => PolygoneStyle(label, highlight, SchotterentnahmenColors);
 const StrassenVerlaufStyle = (label, highlight) => LineStyle(label, highlight, StrassenVerlaufColors);
-const KastellStyle = (label, highlight) => ContextPointStyle(label, highlight, KastellColors, fortIconWhite);
-const WachtpostenStyle = (label, highlight) => ContextPointStyle(label, highlight, WachtpostenColors, watchtowerIconWhite);
-const MeilensteinOrteStyle = (label, highlight) => ContextPointStyle(label, highlight, MeilensteinOrteColors, milestoneIconWhite);
-const StaedteStyle = (label, highlight) => ContextPointStyle(label, highlight, StaedteColors, cityIconBlack);
+const KastellStyle = (label, highlight) => ContextPointStyle(label, highlight, KastellColors, fortIcon);
+const WachtpostenStyle = (label, highlight) => ContextPointStyle(label, highlight, WachtpostenColors, watchtowerIcon);
+const MeilensteinOrteStyle = (label, highlight) => ContextPointStyle(label, highlight, MeilensteinOrteColors, milestoneIcon);
+const StaedteStyle = (label, highlight) => ContextPointStyle(label, highlight, StaedteColors, cityIcon);
 
 const ContextPointStyle = (label, highlight, colorScheme, icon) => [
     new Style({
@@ -104,10 +101,10 @@ const ContextPointStyle = (label, highlight, colorScheme, icon) => [
         zIndex: 5,
         image: new Icon({
             src: icon,
+            width: highlight ? 28 : 18,
+            height: highlight ? 28 : 18,
             offset: [0, 0],
-            opacity: 1,
-            scale: 0.12,
-            color: colorScheme.contrast
+            opacity: 1
         })
     })
 ];
