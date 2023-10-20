@@ -14,7 +14,7 @@
     "author": "Jakob Vesely",
     "license": "ISC",
     "dependencies": {
-        "@ortsarchiv-gemeinlebarn/components": "^2.10.0",
+        "@ortsarchiv-gemeinlebarn/components": "file:../components",
         "ol": "^7.4.0",
         "photoswipe": "^5.4.2",
         "proj4": "^2.9.0"
