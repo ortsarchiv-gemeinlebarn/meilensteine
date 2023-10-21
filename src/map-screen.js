@@ -65,6 +65,8 @@ document.querySelector("oag-screen-map").addEventListener("readyMap", ($event) =
 
     screenMap.getView().setCenter([1758950, 6163175]);
     screenMap.getView().setZoom(19);
+    screenMap.getView().setMinZoom(10);
+    screenMap.getView().setMaxZoom(23);
 
     screenlayers.fundort_meilensteine = new VectorLayer({
         source: new VectorSource({
