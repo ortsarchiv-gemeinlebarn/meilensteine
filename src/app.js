@@ -17,3 +17,4 @@ application?.addEventListener("loaded", () => {
 import './map-screen';
 import './map-fundort';
 import './map-strasse';
+import './map-besiedelung';

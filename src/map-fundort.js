@@ -7,26 +7,19 @@ import * as fundort_meilensteine from '../data/fundort/meilensteine_3857.json';
 import * as fundort_loecher from '../data/fundort/loecher_3857.json';
 import * as fundort_schotterentnahmen from '../data/fundort/schotterentnahmen_3857.json';
 import * as fundort_referenzlinien from '../data/fundort/referenzlinien_3857.json';
-import * as fundort_strasse from '../data/fundort/strasse_3857.json';
 
 document.getElementById("map-fund")?.addEventListener("readyMap", ($event) => {
     const map = $event.detail;
 
     map.getView().setCenter([1758922.985, 6163196.460]);
-    map.getView().setZoom(21.4);
+    map.getView().setZoom(21.5);
 
     map.addLayer(new TileLayer({
-        title: 'Overlay',
-        // opacity: 0.7,
-        extent: [1758789.407500, 6163104.980435, 1759039.693100, 6163301.040100],
         source: new XYZ({
-            attributions: '',
-            minZoom: 10,
-            maxZoom: 24,
-            url: 'https://data.ortsarchiv-gemeinlebarn.org/meilensteine/geo/tiles/before3857/{z}/{x}/{y}.png',
-            tileSize: [256, 256]
+            url: 'https://gis{1-4}.ortsarchiv-gemeinlebarn.org/orthophoto/bev-2017250/epsg3857/{z}/{x}/{y}.png',
+            tileSize: 512,
         }),
-        zIndex: 50
+        zIndex: 30,
     }));
 
     map.addLayer(new VectorLayer({

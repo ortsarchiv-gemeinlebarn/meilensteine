@@ -138,7 +138,15 @@ const LineStyle = (label, highlight, colorScheme) => [
     new Style({
         stroke: new Stroke({
             color: colorScheme.full,
-            width: highlight ? 8 : 4
+            width: highlight ? 8 : 4,
+            zIndex: 1
+        })
+    }),
+    new Style({
+        stroke: new Stroke({
+            color: colorScheme.transparent,
+            width: highlight ? 6 : 3,
+            zIndex: 2
         })
     }),
     new Style({
