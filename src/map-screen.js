@@ -1,7 +1,6 @@
 import { GeoJSON } from 'ol/format';
 import { Vector as VectorSource } from 'ol/source';
 import { Vector as VectorLayer } from 'ol/layer';
-import { Circle as CircleStyle, Stroke, Fill, Style } from 'ol/style';
 import { createEmpty, getCenter, extend as extendExtent } from 'ol/extent';
 import { easeOut } from 'ol/easing';
 import { OrthofotoBasemap, OrthofotoBev2017250 } from './layers';
