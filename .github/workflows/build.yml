@@ -24,10 +24,7 @@ jobs:
         run: npm ci
 
       - name: '[npm] Build'
-        run: npm run ci:build:landing --if-present
-
-      - name: '[npm] Build Landing Page'
-        run: npm run ci:build:vorschau --if-present
+        run: npm run ci:build --if-present
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
