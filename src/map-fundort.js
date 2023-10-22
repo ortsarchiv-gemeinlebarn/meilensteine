@@ -14,6 +14,8 @@ document.getElementById("map-fund")?.addEventListener("readyMap", ($event) => {
     map.getView().setCenter([1758922.985, 6163196.460]);
     map.getView().setZoom(21.5);
 
+    map.getInteractions().forEach(interaction => map.removeInteraction(interaction));
+
     map.addLayer(new TileLayer({
         source: new XYZ({
             url: 'https://gis{1-4}.ortsarchiv-gemeinlebarn.org/orthophoto/bev-2017250/epsg3857/{z}/{x}/{y}.png',

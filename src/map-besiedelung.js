@@ -13,6 +13,8 @@ document.getElementById("map-besiedelung")?.addEventListener("readyMap", ($event
     map.getView().setCenter([1740000, 6152000]);
     map.getView().setZoom(10);
 
+    map.getInteractions().forEach(interaction => map.removeInteraction(interaction));
+
     map.addLayer(new VectorLayer({
         source: new VectorSource({ features: new GeoJSON().readFeatures(wachposten) }),
         style: (feature) => WachtpostenStyle(feature.getProperties().title, false),

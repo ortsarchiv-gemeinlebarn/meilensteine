@@ -14,6 +14,8 @@ document.getElementById("map-strasse")?.addEventListener("readyMap", ($event) =>
     map.getView().setCenter([1759424.107577, 6163175.814151]);
     map.getView().setZoom(14);
 
+    map.getInteractions().forEach(interaction => map.removeInteraction(interaction));
+
     map.addLayer(new VectorLayer({
         source: new VectorSource({ features: new GeoJSON().readFeatures(fundort_schotterentnahmen) }),
         style: (feature) => SchotterentnahmenStyle(feature.getProperties().title, true),
