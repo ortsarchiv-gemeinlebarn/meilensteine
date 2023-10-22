@@ -23,5 +23,8 @@
         "@parcel/transformer-sass": "^2.9.3",
         "buffer": "^6.0.3",
         "parcel": "^2.9.3"
+    },
+    "optionalDependencies": {
+        "@parcel/watcher-linux-x64-glibc": "2.3.0"
     }
 }
