@@ -8,16 +8,12 @@
     <title>Die römischen Meilensteine von Gemeinlebarn</title>
 
     <link rel="stylesheet" href="../node_modules/@ortsarchiv-gemeinlebarn/components/dist/oag-components/oag-components.css">
-    <link rel="stylesheet" href="style.css">
-    <script type="module" src="app.js"></script>
+    <link rel="stylesheet" href="./style.scss">
+    <script type="module" src="./app.js"></script>
 </head>
 
 <body>
-    <div id="preloading">
-        <div class="loader"></div>
-        <h1>Die römischen Meilensteine von Gemeinlebarn</h1>
-        <h3>Lade Projekt</h3>
-    </div>
+    <oag-loading id="preloading" label="Die römischen Meilensteine von Gemeinlebarn"></oag-loading>
 
     <oag-application id="application" desktop-optimized="true" style="display: none;">
 
@@ -60,7 +56,7 @@
 
         <oag-content>
             <h2>Gemeinlebarn</h2>
-            <p>Gemeinlebarn, sowohl damals als auch heute im direkten Umland von Augustianis (heute Traismauer), war ein in der 2. Hälfte des 1. Jahrhunderts n. Chr. errichtetes römisches Kastell. Es diente als Standort für eine Kavallerieeinheit von etwa 500 Mann. Die Soldaten überwachten die Region um die Traisenmündung und entlang des Donauufers zwischen Mautern an der Donau und Tulln. Das Lager hatte eine Fläche von fast 3,8 Hektar. Heute ist es vollständig von der mittelalterlichen Bebauung Traismauers überlagert. Einzigartig für den Donaulimes sind noch heute erhaltene spätantike Befestigungsbauten wie das Wienertor und der Hunger- oder Reckturm. Das heutige Schloss Traismauer könnte in seiner Grundform ebenfalls auf einen spätantiken Befestigungsbau zurückgehen. Unterhalb der Pfarrkirche ist heute noch ein Teil des Kommandogebäudes des Lagers (principia) sichtbar.</p>
+            <p>Gemeinlebarn, sowohl damals als auch heute im direkten Umland von Augustianis (heute Traismauer), war ein in der 2. Hälfte des 1. Jahrhunderts n. Chr. errichtetes römisches Kastell. Es diente als Standort für eine Kavallerieeinheit von etwa 500 Mann. Die Soldaten überwachten die Region um die Traisenmündung und entlang des Donauufers zwischen Mautern an der Donau und Tulln. Das Lager hatte eine Fläche von asdt 3,8 Hektar. Heute ist es vollständig von der mittelalterlichen Bebauung Traismauers überlagert. Einzigartig für den Donaulimes sind noch heute erhaltene spätantike Befestigungsbauten wie das Wienertor und der Hunger- oder Reckturm. Das heutige Schloss Traismauer könnte in seiner Grundform ebenfalls auf einen spätantiken Befestigungsbau zurückgehen. Unterhalb der Pfarrkirche ist heute noch ein Teil des Kommandogebäudes des Lagers (principia) sichtbar.</p>
         </oag-content>
 
         <oag-content>
@@ -367,6 +363,31 @@
         ]'></oag-gallery>
 
         <oag-content>
+            <h2>Dieses Projekt</h2>
+            <p><q>Die römischen Meilensteine von Gemeinlebarn</q> sind ein Projekt des Ortsarchivs Gemeinlebarn in Kooperation mit Dr. Dominik Hagmann. Am 22. Oktober 2023 wurde zum Auftakt in das Feuerwehrhaus Gemeinlebarn zu einem Vortrag geladen. Dieses Web-Projekt ist eine permanente Ergänzung zu diesem Vortrag und kann ggf. auch inhaltlich erweitert werden.</p>
+        </oag-content>
+        <oag-content>
+            <oag-misc
+                image="https://homepage.univie.ac.at/dominik.hagmann/wp-content/uploads/2022/05/HAGMANN_2018_FRONT_QUADRAT_MEDIUM_LOW.png"
+                label="Dr. Dominik Hagmann"
+                tagline="Autor und Vortragender der fachlichen Inhalte">
+
+                <p>Archäologe mit Fokus auf den provinzialrömischen Bereich, insbesondere der Besiedlung des Hinterlands im Imperium Romanum. Im Jahr 2022 promovierte er mit Auszeichnung an der Universität Wien (Doctoral School for Cultural and Historical Studies) mit der Arbeit <q>Roman Rural Landscapes in Noricum</q>.</p>
+
+                <a slot="links" href="https://homepage.univie.ac.at/dominik.hagmann/" target="_blank" rel="noopener noreferrer">Website</a>
+                <a slot="links" href="https://ktn.academia.edu/DominikHagmann" target="_blank" rel="noopener noreferrer">Publikationen</a>
+                <a slot="links" href="https://ktn.academia.edu/DominikHagmann/CurriculumVitae" target="_blank" rel="noopener noreferrer">Curriculum Vitae</a>
+            </oag-misc>
+            <oag-misc
+                image="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/jakob-2019-quad-512.jpg"
+                label="Jakob Vesely"
+                tagline="Verantwortlich für die technische Umsetzung dieser Website, sowie die Aufbereitung der Inhalte des Ortsarchivs Gemeinlebarn">
+
+                <p>Software-Entwickler beim Am der NÖ Landesregierung und <a href="https://www.appartig.at" target="_blank" rel="noopener noreferrer">AppArtig</a>. Daneben Studium der Philosophie an der Universität Wien und Betätigung als <q>Citizen Scientist</q> <br>(u.a. <a href="https://ueberland.jakob.fyi" target="_blank" rel="noopener noreferrer">Dokumentationsprojekt Überland</a>) und Archivar beim Ortsarchiv Gemeinlebarn.</p>
+
+                <a slot="links" href="https://jakob.fyi" target="_blank" rel="noopener noreferrer">Website</a>
+            </oag-misc>
+
             <h2>Weiterführende Informationen zu lokalen Initiativen</h2>
             <ul>
                 <li>
@@ -390,9 +411,6 @@
                     <a href="http://lupa.at/8046" target="_blank" rel="noopener noreferrer">Meilenstein des Licinius</a>
                 </li>
             </ul>
-
-            <h2>Redaktion</h2>
-            <p>Die fachlichen Inhalte wurden dankenswerterweise von <a href="https://homepage.univie.ac.at/dominik.hagmann/" target="_blank" rel="noopener noreferrer">Dr. Dominik Hagmann</a> zur Verfügung gestellt und mit Inhalten des Ortsarchivs Gemeinlebarn durch <a href="https://jakob.fyi" target="blank">Jakob Vesely</a> angereichert.</p>
 
             <h2>Quellen</h2>
             <oag-reference
@@ -468,12 +486,34 @@
 
         <oag-information></oag-information>
 
-        <oag-content class="imprint">
+        <oag-content>
+            <h2>Änderungsprotokoll</h2>
+            <p>Sie bekommen hier einen Überblick über alle Änderungen, die im Laufe der Zeit auf dieser Seite gemacht wurden. Der Quellcode dieses Projekts ist <a href="https://github.com/ortsarchiv-gemeinlebarn/meilensteine" target="_blank" rel="noopener noreferrer">öffentlich auf der Plattform Github einsehbar</a>. Erweiterte (technische) Änderungen können so auch auf diese Weise nachvollzogen werden.</p>
+
+            <oag-changelog-version date="27. Oktober 2023" version="2">
+                <oag-changelog-entry label="Jahreszahl in Übersichtskarte" tags="geändert">
+                    In der Übersichtskarte wurde die fehlerhafte Jahreszahl (1997) bei der <q>Fundort</q>-Überschrift auf 1998 geändert.
+                </oag-changelog-entry>
+                <oag-changelog-entry label="Informationen zum Projekt" tags="hinzugefügt">
+                    Informationen zum Projekt selbst, sowie den beiden Hauptakteuren, Dr. Dominik Hagmann und Jakob Vesely, wurden ergänzt.
+                </oag-changelog-entry>
+                <oag-changelog-entry label="Änderungsprotokoll" tags="hinzugefügt">
+                    Dieses Änderungsprotokoll wurde hinzugefügt, um alle nachträgliche Änderungen nachvollziehbar zu machen.
+                </oag-changelog-entry>
+            </oag-changelog-version>
+            <oag-changelog-version date="22. Oktober 2023" version="1">
+                <oag-changelog-entry label="Initiale Version">
+                    Die initiale Version wurde am 22. Oktober 2023 veröffentlicht.
+                </oag-changelog-entry>
+            </oag-changelog-version>
+        </oag-content>
+
+        <oag-imprint>
             <h2>Impressum & Datenschutz</h2>
             <p>Diese Veranstaltung und dazugehörige Online-Information sind ein Projekt des Ortsarchivs Gemeinlebarn.</p>
             <p><strong>Datenschutz:</strong> Es werden keinerlei personenbezogene Daten erhoben!</p>
             <p><strong>Medieninhaber:</strong> Jakob Vesely, Neubaugasse 17, 3133 Gemeinlebarn, <a href="mailto:contact@jakob.fyi">contact@jakob.fyi</a>, <a href="https://www.jakob.fyi" target="_blank" rel="noopener noreferrer">www.jakob.fyi</a></p>
-        </oag-content>
+        </oag-imprint>
 
         <oag-screen-map opened="false" label-open="Übersichtskarte öffnen" label-close="Übersichtskarte schließen">
             <div class="screen-headline">

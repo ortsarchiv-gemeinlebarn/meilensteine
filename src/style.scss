@@ -1,0 +1,95 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: auto;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+ul {
+    margin-block-start: 0.2em;
+    margin-block-end: 2em;
+    line-height: 1.5;
+}
+
+oag-figure {
+
+    .images-half {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+    }
+
+    .images-half img {
+        width: 50%;
+    }
+
+    table.inschrift {
+        line-height: 1;
+        width: 100%;
+        border: 0;
+        border-collapse: collapse;
+
+        thead tr {
+            background-color: #ddd;
+        }
+
+        tbody {
+            tr {
+                &:nth-child(odd) {
+                    background-color: #f8f8f8;
+                }
+
+                &:nth-child(even) {
+                    background-color: #f4f4f4;
+                }
+            }
+
+            th,
+            td {
+                padding: 1em;
+                width: 50%;
+                text-align: left;
+            }
+        }
+    }
+}
+
+oag-map {
+    background-color: #f4f4f4;
+}
+
+oag-screen-map {
+    --screen-map-background-color: #eee;
+    --open-left: calc(2 * var(--default-layout-padding));
+    --open-bottom: calc(2 * var(--default-layout-padding));
+    --open-tranform: none;
+    --close-left: calc(2 * var(--default-layout-padding));
+    --close-bottom: calc(2 * var(--default-layout-padding));
+    --close-tranform: none;
+
+    .screen-headline {
+        margin-top: 2em;
+        margin-bottom: 1em;
+    }
+
+    .screen-headline:first-child {
+        margin-top: 0;
+    }
+
+    .screen-headline h2 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .screen-headline h3 {
+        margin: 0;
+        padding: 0;
+        font-size: 1.25em;
+        color: #555;
+    }
+}

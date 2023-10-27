@@ -1,11 +1,13 @@
 {
     "name": "@ortsarchiv-gemeinlebarn/meilensteine",
-    "version": "1.0.0",
-    "description": "",
+    "version": "2",
+    "description": "Web Project",
+    "browserslist": "> 0.5%, last 2 versions, not dead",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "parcel": "npx parcel",
-        "start": "parcel src/index.html",
+        "start": "npm run cleanup && parcel src/index.html --no-cache --open",
+        "cleanup": "rimraf .parcel-cache dist",
         "start:landing": "parcel src/landing/index.html",
         "ci:build": "parcel build src/index.html --log-level error --no-cache --dist-dir ./dist",
         "ci:build:vorschau": "parcel build src/index.html --log-level error --no-cache --dist-dir ./dist/landing/vorschau --public-url ./",
@@ -14,14 +16,14 @@
     "author": "Jakob Vesely",
     "license": "ISC",
     "dependencies": {
-        "@ortsarchiv-gemeinlebarn/components": "^2.13.1",
+        "@ortsarchiv-gemeinlebarn/components": "^2.14.0",
         "ol": "^8.1.0",
-        "photoswipe": "^5.4.2",
-        "proj4": "^2.9.0"
+        "proj4": "^2.9.2"
     },
     "devDependencies": {
-        "@parcel/transformer-sass": "^2.9.3",
+        "@parcel/transformer-sass": "^2.10.1",
         "buffer": "^6.0.3",
-        "parcel": "^2.9.3"
+        "parcel": "^2.10.1",
+        "rimraf": "^5.0.5"
     }
 }
