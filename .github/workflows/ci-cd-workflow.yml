@@ -21,6 +21,7 @@ jobs:
       deployTest: ${{ steps.setup.outputs.DEPLOY_TEST }}
       deployProduction: ${{ steps.setup.outputs.DEPLOY_PRODUCTION }}
       version: ${{ steps.package.outputs.VERSION }}
+      fullBuildNumber: ${{ steps.summary.outputs.FULL_BUILD_NUMBER }}
     steps:
       - name: Evaluate Deployment Strategy
         id: setup
@@ -39,6 +40,7 @@ jobs:
           echo "VERSION=$version" >> $env:GITHUB_OUTPUT
 
       - name: Summary
+        id: summary
         run: |
           if [ ${{ steps.setup.outputs.DEPLOY_PRODUCTION }} == 'false' ]; then
             echo "Deployment: nur bis Test" >> $GITHUB_STEP_SUMMARY
@@ -49,6 +51,8 @@ jobs:
           echo "Run Id: ${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
           echo "Run Number: ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
           echo "Run Attempt: ${{ github.run_attempt }}" >> $GITHUB_STEP_SUMMARY
+
+          echo "FULL_BUILD_NUMBER=v${{ steps.package.outputs.VERSION }} (${{ github.run_id }}-${{ github.run_number }})-${{ github.run_attempt }})" >> "$GITHUB_OUTPUT"
 
   # Test Environment
 
@@ -70,9 +74,11 @@ jobs:
       - name: '[npm] Install Dependencies'
         run: npm ci
 
-      - name: Add No Follow Meta Tag for Test
+      - name: Replace Placeholders in HTML
         shell: pwsh
-        run: (Get-Content ./src/index.html).Replace('<!-- HEAD-PLACEHOLDER -->', '<meta name="robots" content="noindex,nofollow">') | Set-Content ./src/index.html
+        run: |
+          (Get-Content ./src/index.html).Replace('<!-- VERSION-PLACEHOLDER -->', '${{ needs.prepare.outputs.fullBuildNumber == 'true' }}') | Set-Content ./src/index.html
+          (Get-Content ./src/index.html).Replace('<!-- HEAD-PLACEHOLDER -->', '<meta name="robots" content="noindex,nofollow">') | Set-Content ./src/index.html
 
       - name: '[npm] Build'
         run: npm run ci:build --if-present
@@ -123,6 +129,12 @@ jobs:
 
       - name: '[npm] Install Dependencies'
         run: npm ci
+
+      - name: Replace Placeholders in HTML
+        shell: pwsh
+        run: |
+          (Get-Content ./src/index.html).Replace('<!-- VERSION-PLACEHOLDER -->', '${{ needs.prepare.outputs.fullBuildNumber == 'true' }}') | Set-Content ./src/index.html
+          (Get-Content ./src/index.html).Replace('<!-- HEAD-PLACEHOLDER -->', '') | Set-Content ./src/index.html
 
       - name: '[npm] Build'
         run: npm run ci:build --if-present
