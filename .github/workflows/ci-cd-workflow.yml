@@ -52,7 +52,7 @@ jobs:
           echo "Run Number: ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
           echo "Run Attempt: ${{ github.run_attempt }}" >> $GITHUB_STEP_SUMMARY
 
-          echo "FULL_BUILD_NUMBER=v${{ steps.package.outputs.VERSION }} (${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }})" >> "$GITHUB_OUTPUT"
+          echo "FULL_BUILD_NUMBER=v${{ steps.package.outputs.VERSION }}-${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}" >> "$GITHUB_OUTPUT"
 
   # Test Environment
 
