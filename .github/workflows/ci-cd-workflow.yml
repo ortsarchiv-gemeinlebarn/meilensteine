@@ -47,12 +47,12 @@ jobs:
           else
             echo "Deployment: bis in Production möglich" >> $GITHUB_STEP_SUMMARY
           fi
-          echo "Version: ${{ steps.package.outputs.VERSION }} " >> $GITHUB_STEP_SUMMARY
+          echo "Version: ${{ steps.package.outputs.VERSION }}" >> $GITHUB_STEP_SUMMARY
           echo "Run Id: ${{ github.run_id }}" >> $GITHUB_STEP_SUMMARY
           echo "Run Number: ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
           echo "Run Attempt: ${{ github.run_attempt }}" >> $GITHUB_STEP_SUMMARY
 
-          echo "FULL_BUILD_NUMBER=v${{ steps.package.outputs.VERSION }} (${{ github.run_id }}-${{ github.run_number }})-${{ github.run_attempt }})" >> "$GITHUB_OUTPUT"
+          echo "FULL_BUILD_NUMBER=v${{ steps.package.outputs.VERSION }} (${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }})" >> "$GITHUB_OUTPUT"
 
   # Test Environment
 
@@ -77,7 +77,7 @@ jobs:
       - name: Replace Placeholders in HTML
         shell: pwsh
         run: |
-          (Get-Content ./src/index.html).Replace('<!-- VERSION-PLACEHOLDER -->', '${{ needs.prepare.outputs.fullBuildNumber == 'true' }}') | Set-Content ./src/index.html
+          (Get-Content ./src/index.html).Replace('<!-- VERSION-PLACEHOLDER -->', '${{ needs.prepare.outputs.fullBuildNumber }}') | Set-Content ./src/index.html
           (Get-Content ./src/index.html).Replace('<!-- HEAD-PLACEHOLDER -->', '<meta name="robots" content="noindex,nofollow">') | Set-Content ./src/index.html
 
       - name: '[npm] Build'
@@ -133,7 +133,7 @@ jobs:
       - name: Replace Placeholders in HTML
         shell: pwsh
         run: |
-          (Get-Content ./src/index.html).Replace('<!-- VERSION-PLACEHOLDER -->', '${{ needs.prepare.outputs.fullBuildNumber == 'true' }}') | Set-Content ./src/index.html
+          (Get-Content ./src/index.html).Replace('<!-- VERSION-PLACEHOLDER -->', '${{ needs.prepare.outputs.fullBuildNumber }}') | Set-Content ./src/index.html
           (Get-Content ./src/index.html).Replace('<!-- HEAD-PLACEHOLDER -->', '') | Set-Content ./src/index.html
 
       - name: '[npm] Build'
