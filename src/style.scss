@@ -9,6 +9,11 @@ body {
     padding: 0;
 }
 
+*:not(oag-reference) {
+    scroll-behavior: smooth;
+    scroll-margin-top: calc(0.65 * var(--default-layout-padding));
+}
+
 ul {
     margin-block-start: 0.2em;
     margin-block-end: 2em;
