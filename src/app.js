@@ -14,6 +14,9 @@ application?.addEventListener("loaded", () => {
     application.style = "display:flex";
 });
 
+window.openCockpit = () => document.getElementsByTagName('oag-cockpit')[0].setAttribute('visible', 'true');
+window.openScreenMap = () => document.getElementsByTagName('oag-screen-map')[0].setAttribute('visible', 'true');
+
 import './map-screen';
 import './map-fundort';
 import './map-strasse';

@@ -59,18 +59,71 @@ oag-figure {
     }
 }
 
+oag-imprint {
+    border-top: 1px solid #f1f1f1;
+    padding-top: var(--default-layout-padding);
+}
+
 oag-map {
     background-color: #f4f4f4;
 }
 
+// Menu
+oag-menu:not(.scrolled) .open-cockpit {
+    --menu-item-background-color: #fff;
+    --menu-item-background-color-hover: #eee;
+    --menu-item-background-color-active: #ddd;
+    --menu-item-text-color: #333;
+    --menu-item-text-color-hover: #111;
+    --menu-item-text-color-active: #000;
+}
+
+// Cockpit
+oag-cockpit {
+    oag-cockpit-navigation-item {
+
+        &.level-1 {
+            --cockpit-navigation-item-size: 0.9rem;
+            --cockpit-navigation-item-margin-top: 2em;
+            --cockpit-navigation-item-text-color: #999;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        &.level-2 {
+            --cockpit-navigation-item-size: 1.35em;
+        }
+    }
+
+    h1[slot="head"] {
+        margin: 0;
+    }
+
+    nav[slot=navigation] {
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+
+        .navigation-column {
+            width: 50%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        nav[slot=navigation] {
+            flex-wrap: wrap;
+
+            .navigation-column {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Screen Map
 oag-screen-map {
     --screen-map-background-color: #eee;
-    --open-left: calc(2 * var(--default-layout-padding));
-    --open-bottom: calc(2 * var(--default-layout-padding));
-    --open-tranform: none;
-    --close-left: calc(2 * var(--default-layout-padding));
-    --close-bottom: calc(2 * var(--default-layout-padding));
-    --close-tranform: none;
 
     .screen-headline {
         margin-top: 2em;
