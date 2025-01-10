@@ -6,8 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "parcel": "npx parcel",
-        "start": "npm run cleanup && parcel src/index.html --no-cache --open",
-        "cleanup": "rimraf .parcel-cache dist",
+        "start": "parcel src/index.html --no-cache --open",
         "start:landing": "parcel src/landing/index.html",
         "ci:build": "parcel build src/index.html --log-level error --no-cache --dist-dir ./dist",
         "ci:build:vorschau": "parcel build src/index.html --log-level error --no-cache --dist-dir ./dist/landing/vorschau --public-url ./",
@@ -18,12 +17,11 @@
     "dependencies": {
         "@ortsarchiv-gemeinlebarn/components": "^2.16.1",
         "ol": "^8.2.0",
-        "proj4": "^2.10.0"
+        "proj4": "^2.15.0"
     },
     "devDependencies": {
-        "@parcel/transformer-sass": "^2.11.0",
+        "@parcel/transformer-sass": "^2.13.3",
         "buffer": "^6.0.3",
-        "parcel": "^2.11.0",
-        "rimraf": "^5.0.5"
+        "parcel": "^2.13.3"
     }
 }
