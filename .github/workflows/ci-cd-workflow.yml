@@ -81,6 +81,7 @@ jobs:
           (Get-Content ./src/index.html).Replace('<!-- HEAD-PLACEHOLDER -->', '<meta name="robots" content="noindex,nofollow">') | Set-Content ./src/index.html
 
       - name: "[npm] Build"
+        shell: sh
         run: npm run ci:build --if-present
 
       - name: "[publish] Artifact for Test"
