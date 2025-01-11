@@ -58,7 +58,7 @@ jobs:
 
   build-test:
     name: "[Test] Build"
-    runs-on: windows-latest
+    runs-on: macos-latest
     needs: prepare
     if: ${{ needs.prepare.outputs.deployTest == 'true' }}
     steps:
@@ -68,10 +68,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
-          cache: 'npm'
+          node-version: 22.x
 
-      - name: '[npm] Install Dependencies'
+      - name: "[npm] Install Dependencies"
         run: npm ci
 
       - name: Replace Placeholders in HTML
@@ -80,10 +79,10 @@ jobs:
           (Get-Content ./src/index.html).Replace('<!-- VERSION-PLACEHOLDER -->', '${{ needs.prepare.outputs.fullBuildNumber }}') | Set-Content ./src/index.html
           (Get-Content ./src/index.html).Replace('<!-- HEAD-PLACEHOLDER -->', '<meta name="robots" content="noindex,nofollow">') | Set-Content ./src/index.html
 
-      - name: '[npm] Build'
+      - name: "[npm] Build"
         run: npm run ci:build --if-present
 
-      - name: '[publish] Artifact for Test'
+      - name: "[publish] Artifact for Test"
         uses: actions/upload-artifact@v3
         with:
           name: Test
@@ -114,7 +113,7 @@ jobs:
 
   build-production:
     name: "[Production] Build"
-    runs-on: windows-latest
+    runs-on: macos-latest
     needs: prepare
     if: ${{ needs.prepare.outputs.deployProduction == 'true' }}
     steps:
@@ -124,10 +123,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
-          cache: 'npm'
+          node-version: 22.x
+          cache: "npm"
 
-      - name: '[npm] Install Dependencies'
+      - name: "[npm] Install Dependencies"
         run: npm ci
 
       - name: Replace Placeholders in HTML
@@ -136,10 +135,10 @@ jobs:
           (Get-Content ./src/index.html).Replace('<!-- VERSION-PLACEHOLDER -->', '${{ needs.prepare.outputs.fullBuildNumber }}') | Set-Content ./src/index.html
           (Get-Content ./src/index.html).Replace('<!-- HEAD-PLACEHOLDER -->', '') | Set-Content ./src/index.html
 
-      - name: '[npm] Build'
+      - name: "[npm] Build"
         run: npm run ci:build --if-present
 
-      - name: '[publish] Artifact for Test'
+      - name: "[publish] Artifact for Test"
         uses: actions/upload-artifact@v3
         with:
           name: Production
@@ -158,7 +157,7 @@ jobs:
           path: ./dist/
 
       - name: Deploy with FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_DEPLOY_HOSTNAME }}
           username: ${{ secrets.FTP_DEPLOY_USERNAME }}
