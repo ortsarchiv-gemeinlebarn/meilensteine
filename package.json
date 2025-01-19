@@ -1,6 +1,6 @@
 {
     "name": "@ortsarchiv-gemeinlebarn/meilensteine",
-    "version": "5",
+    "version": "6",
     "description": "Web Project",
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "scripts": {

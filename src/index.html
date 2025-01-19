@@ -7,6 +7,10 @@
 
         <!-- HEAD-PLACEHOLDER -->
 
+        <link rel="icon" type="image/svg+xml" href="../assets/favicons/favicon.svg" />
+        <link rel="shortcut icon" href="../assets/favicons/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png" />
+
         <meta property="og:title" content="Die römischen Meilensteine von Gemeinlebarn">
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-033-gat.jpeg">
@@ -17,17 +21,23 @@
         <meta name="twitter:card" content="https://data.ortsarchiv-gemeinlebarn.org/meilensteine/fotos/ausgrabung/Meilensteine-Fotos-033-gat.jpeg">
         <meta name="twitter:image:alt" content="Multimediale Inhalte zu den römischen Meilensteinen von Gemeinlebarn aus dem Ortsarchiv">
 
+
         <title>Die römischen Meilensteine von Gemeinlebarn</title>
 
+        <link rel="stylesheet" href="./load.scss">
         <link rel="stylesheet" href="../node_modules/@ortsarchiv-gemeinlebarn/components/dist/oag-components/oag-components.css">
         <link rel="stylesheet" href="./style.scss">
         <script type="module" src="./app.js"></script>
     </head>
 
     <body>
-        <oag-loading id="preloading" label="Die römischen Meilensteine von Gemeinlebarn"></oag-loading>
+        <div id="preloading" class="oag-loading">
+            <div class="spinner"></div>
+            <h1>Die römischen Meilensteine von Gemeinlebarn</h1>
+            <h3>Lade Projekt</h3>
+        </div>
 
-        <oag-application id="application" desktop-optimized="true" style="display: none;">
+        <oag-application id="application" desktop-optimized="true">
 
             <oag-hero
                 id="hero"
@@ -525,12 +535,22 @@
                 <h2 id="changelog">Änderungsprotokoll</h2>
                 <p>Sie bekommen hier einen Überblick über alle Änderungen, die im Laufe der Zeit auf dieser Seite gemacht wurden. Der Quellcode dieses Projekts ist <a href="https://github.com/ortsarchiv-gemeinlebarn/meilensteine" target="_blank" rel="noopener noreferrer">öffentlich auf der Plattform Github einsehbar</a>. Erweiterte (technische) Änderungen können so auch auf diese Weise nachvollzogen werden.</p>
 
+                <oag-changelog-version date="19. Jänner 2025" version="6">
+                    <oag-changelog-entry label="Projektlogo und Favicon" tags="hinzugefügt">
+                        Ein neues Logo und Favicon wurde hinzugefügt.
+                    </oag-changelog-entry>
+                    <oag-changelog-entry label="Preloading" tags="geändert">
+                        Die initiale Lade-Funktion wurde technisch verbessert.
+                    </oag-changelog-entry>
+                </oag-changelog-version>
+
                 <oag-changelog-version date="10. Jänner 2025" version="5">
                     <oag-changelog-entry label="Tipp- bzw. Formulierungsfehler" tags="geändert">
                         Drei kleine Tipp- bzw. Formulierungsfehler wurden ausgebessert.
                     </oag-changelog-entry>
                     <oag-changelog-entry label="3D-Modelle der Meilensteine" tags="hinzugefügt">
                         Die von Dr. Dominik Hagmann erstellten 3D-Modelle wurden eingefügt.
+                    </oag-changelog-entry>
                 </oag-changelog-version>
 
                 <oag-changelog-version date="15. Juli 2024" version="4">
