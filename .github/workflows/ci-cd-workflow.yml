@@ -83,7 +83,7 @@ jobs:
         run: npm run ci:build --if-present
 
       - name: "[publish] Artifact for Test"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Test
           path: ./dist/
@@ -95,7 +95,7 @@ jobs:
     environment: Test
     steps:
       - name: Download Artifact form Build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: Test
           path: ./dist/
@@ -140,7 +140,7 @@ jobs:
         run: npm run ci:build --if-present
 
       - name: "[publish] Artifact for Test"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Production
           path: ./dist/
@@ -152,7 +152,7 @@ jobs:
     environment: Production
     steps:
       - name: Download Artifact form Build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: Production
           path: ./dist/
